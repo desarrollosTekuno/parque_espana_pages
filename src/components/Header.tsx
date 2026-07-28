@@ -2,12 +2,12 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 
-import Logo from "@/assets/icons/logo.png";
+import Logo from "@/assets/icons/Logo.webp";
 
 const mainLinks = [
   { label: "Inicio", to: "/" },
-  { label: "Nosotros", to: "/nosotros" },
-  { label: "Membresías", to: "/membresias" },
+  { label: "Nosotros", to: "/about" },
+  { label: "Membresías", to: "/memberships" },
 ];
 
 const secondaryLinks = [
@@ -17,9 +17,9 @@ const secondaryLinks = [
 ];
 
 const instalacionesLinks = [
-  { label: "Horarios", to: "/instalaciones/horarios" },
-  { label: "Vista virtual", to: "/instalaciones/vista-virtual" },
-  { label: "Actividades", to: "/instalaciones/actividades" },
+  { label: "Horarios", to: "/facilities/schedules" },
+  { label: "Vista virtual", to: "/facilities/virtual-view" },
+  { label: "Actividades", to: "/facilities/activities" },
   { label: "Galería", to: "/instalaciones/galeria" },
 ];
 
@@ -30,7 +30,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-50 w-full bg-header-gradient text-white font-bold">
+      <header className="fixed inset-x-0 top-0 z-50 w-full bg-header-gradient text-white font-bold borderr-none">
         <nav className="mx-auto flex h-17.5 items-center justify-between px-6">
           <Link
             to="/"

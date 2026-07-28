@@ -10,7 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@schedule-x/calendar": "^2.17.0",
+    "@schedule-x/events-service": "^2.17.0",
+    "@schedule-x/react": "^2.17.0",
+    "@schedule-x/theme-default": "^2.17.0",
     "@tailwindcss/vite": "^4.3.2",
+    "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.42.2",
     "lucide-react": "^0.542.0",
     "react": "^19.2.7",
@@ -31,5 +36,8 @@
     "oxlint": "^1.71.0",
     "typescript": "~6.0.2",
     "vite": "^8.1.1"
+  },
+  "optionalDependencies": {
+    "@rolldown/binding-win32-x64-msvc": "^1.2.0"
   }
 }

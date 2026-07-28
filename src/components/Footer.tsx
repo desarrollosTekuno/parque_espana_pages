@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import United_Logo from "@/assets/images/Footer/United_Logos.png";
-import Facebook from "@/assets/icons/Footer/Facebook.png";
-import Instagram from "@/assets/icons/Footer/Instagram.png";
-import X from "@/assets/icons/Footer/X.png";
-import YouTube from "@/assets/icons/Footer/YouTube.png";
-import Phone from "@/assets/icons/Footer/Phone.png";
-import Pin from "@/assets/icons/Footer/Pin.png";
+import United_Logo from "@/assets/images/Footer/United_Logos.webp";
+import Facebook from "@/assets/icons/Footer/Facebook.webp";
+import Instagram from "@/assets/icons/Footer/Instagram.webp";
+import X from "@/assets/icons/Footer/X.webp";
+import YouTube from "@/assets/icons/Footer/YouTube.webp";
+import Phone from "@/assets/icons/Footer/Phone.webp";
+import Pin from "@/assets/icons/Footer/Pin.webp";
 
 const columnaIzquierda = [
   { label: "¿Quiénes somos?", to: "/nosotros" },
@@ -31,7 +31,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-white">
-      <div className="h-1 w-full bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-400" />
+      <div className="border-t-2 border-gray-100 shadow-lg mb-5"></div>
 
       <div className="mx-auto grid max-w-[1890px] grid-cols-1 gap-6 px-4 py-8 sm:gap-10 sm:px-6 sm:py-10 lg:grid-cols-4 lg:gap-8 lg:px-10 lg:py-12">
         {/* Columna 1: Patronato */}
@@ -47,6 +47,7 @@ export default function Footer() {
             <img
               src={United_Logo}
               alt="United Logo"
+              loading="lazy"
               className="h-12 w-auto object-contain sm:h-15 lg:w-70"
             />
           </div>
@@ -93,6 +94,7 @@ export default function Footer() {
             <img
               src={Pin}
               alt="Ubicación"
+              loading="lazy"
               className="mt-0.5 h-6 w-4.5 shrink-0 "
             />
             <p className="">
@@ -102,7 +104,7 @@ export default function Footer() {
             </p>
           </div>
           <div className="mt-3 flex items-center justify-center gap-2 text-sm text-gray-700 sm:text-base lg:justify-start">
-            <img src={Phone} alt="Teléfono" className="h-6 w-6 shrink-0 " />
+            <img src={Phone} alt="Teléfono" loading="lazy" className="h-6 w-6 shrink-0 " />
             <a href="tel:+522229175761" className="hover:text-[#0097b2]">
               +52 1 222 917 5761
             </a>
@@ -121,6 +123,7 @@ export default function Footer() {
                 <img
                   src={red.icon}
                   alt={red.label}
+                  loading="lazy"
                   className="h-6 w-6 object-contain"
                 />
               </a>
