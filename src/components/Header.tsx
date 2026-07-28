@@ -17,9 +17,9 @@ const secondaryLinks = [
 ];
 
 const instalacionesLinks = [
-  { label: "Horarios", to: "/instalaciones/horarios" },
-  { label: "Vista virtual", to: "/instalaciones/vista-virtual" },
-  { label: "Actividades", to: "/instalaciones/actividades" },
+  { label: "Horarios", to: "/facilities/schedules" },
+  { label: "Vista virtual", to: "/facilities/virtual-view" },
+  { label: "Actividades", to: "/facilities/activities" },
   { label: "Galería", to: "/instalaciones/galeria" },
 ];
 

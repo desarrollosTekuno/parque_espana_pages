@@ -31,7 +31,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-white">
-      <div className="border-t-2 border-gray-100 shadow-lg mb-12"></div>
+      <div className="border-t-2 border-gray-100 shadow-lg mb-5"></div>
 
       <div className="mx-auto grid max-w-[1890px] grid-cols-1 gap-6 px-4 py-8 sm:gap-10 sm:px-6 sm:py-10 lg:grid-cols-4 lg:gap-8 lg:px-10 lg:py-12">
         {/* Columna 1: Patronato */}

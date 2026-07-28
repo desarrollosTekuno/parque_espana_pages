@@ -60,7 +60,7 @@ export default function FlipCardGrid({
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   useEffect(() => {
-    if (!items || items.length === 0) return;
+    if (!items || items.length == 0) return;
     timeoutRef.current = setTimeout(() => setActiveCard(0), visibleDuration);
     return () => clearTimeout(timeoutRef.current);
   }, [items]);
@@ -76,7 +76,7 @@ export default function FlipCardGrid({
     }, visibleDuration);
   };
 
-  if (!items || items.length === 0) return null;
+  if (!items || items.length == 0) return null;
 
   const cardsProps = Array.from({ length: cardCount }, (_, i) => ({
     key: i,

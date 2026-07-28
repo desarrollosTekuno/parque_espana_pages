@@ -39,8 +39,8 @@ export default function Timeline({ items }: TimelineProps) {
         />
 
         {items.map((item, index) => {
-          const isActive = activeIndex === index;
-          const isLast = index === lastIndex;
+          const isActive = activeIndex == index;
+          const isLast = index == lastIndex;
           const t = index / lastIndex;
           const dotColor = interpolateColor(t);
 
@@ -100,7 +100,7 @@ export default function Timeline({ items }: TimelineProps) {
         />
 
         {items.map((item, index) => {
-          const isLast = index === lastIndex;
+          const isLast = index == lastIndex;
           const t = index / lastIndex;
           const dotColor = interpolateColor(t);
 

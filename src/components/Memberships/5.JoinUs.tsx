@@ -22,7 +22,7 @@ export default function JoinUs() {
           </p>
         </AnimFadeUp>
 
-        <AnimFadeUp className="mt-8 sm:mt-10 lg:mb-20 text-white">
+        <AnimFadeUp className="mt-8 sm:mt-10 lg:mb-20 text-white mb-12">
           <ButtonLink
             text={buttonText}
             to={buttonLink}

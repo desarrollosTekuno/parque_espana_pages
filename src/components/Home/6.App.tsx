@@ -4,6 +4,9 @@ import AppStore from "@/assets/images/Home/App_Store.webp";
 import GooglePlay from "@/assets/images/Home/Google_Play.webp";
 import Mobile from "@/assets/images/Home/Mobile.webp";
 
+const APP_STORE_LINK = "https://apps.apple.com/mx/app/tekasist/id6749398865";
+const GOOGLE_PLAY_LINK = "https://play.google.com/store/apps/details?id=com.tkadmin.tekuno_check&pcampaignid=web_share";
+
 export default function App() {
   const { title, description, googlePlayAlt, appStoreAlt } = HomeContent.app;
 
@@ -21,22 +24,26 @@ export default function App() {
             </p>
 
             <div className="flex gap-4 sm:gap-6 lg:gap-8 justify-center sm:justify-start">
-              <img
-                src={GooglePlay}
-                alt={googlePlayAlt}
-                loading="lazy"
-                className="h-10 sm:h-12 lg:h-16 object-contain transition"
-              />
-              <img
-                src={AppStore}
-                alt={appStoreAlt}
-                loading="lazy"
-                className="h-10 sm:h-12 lg:h-16 object-contain transition"
-              />
+              <a href={GOOGLE_PLAY_LINK} target="_blank" rel="noopener noreferrer">
+                <img
+                  src={GooglePlay}
+                  alt={googlePlayAlt}
+                  loading="lazy"
+                  className="h-10 sm:h-12 lg:h-16 object-contain transition hover:opacity-60"
+                />
+              </a>
+              <a href={APP_STORE_LINK} target="_blank" rel="noopener noreferrer">
+                <img
+                  src={AppStore}
+                  alt={appStoreAlt}
+                  loading="lazy"
+                  className="h-10 sm:h-12 lg:h-16 object-contain transition hover:opacity-60"
+                />
+              </a>
             </div>
           </AnimFadeUp>
 
-          <AnimSlideRight className="flex justify-center sm:justify-end  sm:-mb-25 lg:-mb-32">
+          <AnimSlideRight className="flex justify-center sm:justify-end sm:-mb-25 lg:-mb-32">
             <img
               src={Mobile}
               alt="App móvil"

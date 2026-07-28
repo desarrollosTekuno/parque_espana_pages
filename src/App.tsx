@@ -1,13 +1,16 @@
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import Spinner from "./components/Spinner";
-import Header from './components/Header'
-import Footer from './components/Footer'
-import Home from './pages/Home'
-import About from './pages/About'
-import Memberships from './pages/Memberships'
-import ScrollTop from './components/ScrollTop'
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Memberships from "./pages/Memberships";
+import Schedules from "./pages/Facilities/Schedules";
+import VirtualView from "./pages/Facilities/VirtualView";
+import Activities from "./pages/Facilities/Activities";
+import ScrollTop from "./components/ScrollTop";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -19,21 +22,26 @@ function App() {
     return () => clearTimeout(timer);
   }, [location.pathname]);
 
+
+  
   return (
     <>
       <AnimatePresence>
         {loading && <Spinner />}
       </AnimatePresence>
       <Header />
-<ScrollTop />
+      <ScrollTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/memberships" element={<Memberships />} />
+        <Route path="facilities/schedules" element={<Schedules />} />
+        <Route path="facilities/virtual-view" element={<VirtualView />} />
+        <Route path="facilities/activities" element={<Activities />} />
       </Routes>
       <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

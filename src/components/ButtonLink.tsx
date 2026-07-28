@@ -53,7 +53,7 @@ const sizeClasses: Record<Breakpoint, Record<ButtonSize, string>> = {
 
 function resolveSizeClasses(size: ButtonSize | ResponsiveSize): string {
   const normalized: ResponsiveSize =
-    typeof size === "string" ? { base: size } : size;
+    typeof size == "string" ? { base: size } : size;
 
   return (Object.entries(normalized) as [Breakpoint, ButtonSize][])
     .map(([breakpoint, s]) => sizeClasses[breakpoint][s])

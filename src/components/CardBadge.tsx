@@ -15,7 +15,7 @@ export default function CardBadge({
   imagePosition = "top-left",
   backgroundColor = "#FFFFFF"
 }: CardProps) {
-  const isTopLeft = imagePosition === "top-left";
+  const isTopLeft = imagePosition == "top-left";
 
   return (
     <div className="relative">

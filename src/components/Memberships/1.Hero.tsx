@@ -1,13 +1,13 @@
 import MembershipsHero from "@/assets/images/Memberships/TeamFamily.webp";
 import { MembershipsContent } from "../../constants/Memberships";
-import Graphic_Element from "@/assets/images/Memberships/Graphic_Element2.webp";
+import Graphic_Element from "@/assets/images/Memberships/Graphic_Element.webp";
 import { AnimFadeUp } from "../Animations";
 
 export default function Hero() {
   const { title, subtitle, imageAlt, graphicImageAlt } = MembershipsContent.hero;
 
   return (
-    <section className="relative bg-header-gradient text-white">
+    <section className="relative bg-header-gradient">
       <div className="relative flex flex-col items-center h-auto sm:h-auto lg:h-[60vh] lg:min-h95 lg:max-h-150 lg:flex-row overflow-hidden">
 
         {/* Imagen */}
@@ -34,7 +34,7 @@ export default function Hero() {
 
             {/* Subtítulo */}
             <AnimFadeUp>
-              <h1 className="ml-4 mt-4 text-2xl font-bold leading-tight sm:ml-12 lg:ml-20  text-[26px] sm:text-[24px] lg:text-[45px]">
+              <h1 className="ml-4 mt-4 text-white font-bold leading-tight sm:ml-12 lg:ml-20  text-[26px] sm:text-[24px] lg:text-[45px]">
                 {subtitle}
               </h1>
             </AnimFadeUp>
