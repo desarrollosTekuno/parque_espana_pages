@@ -10,6 +10,8 @@ import Memberships from "./pages/Memberships";
 import Schedules from "./pages/Facilities/Schedules";
 import VirtualView from "./pages/Facilities/VirtualView";
 import Activities from "./pages/Facilities/Activities";
+import Gallery from "./pages/Facilities/Gallery";
+import AppMobile from "./pages/AppMobile";
 import ScrollTop from "./components/ScrollTop";
 
 function App() {
@@ -38,6 +40,8 @@ function App() {
         <Route path="facilities/schedules" element={<Schedules />} />
         <Route path="facilities/virtual-view" element={<VirtualView />} />
         <Route path="facilities/activities" element={<Activities />} />
+        <Route path="facilities/gallery" element={<Gallery />} />
+        <Route path="/app-mobile" element={<AppMobile />} />
       </Routes>
       <Footer />
     </>
