@@ -11,17 +11,18 @@ const mainLinks = [
 ];
 
 const secondaryLinks = [
-  { label: "APP móvil", to: "/app-movil" },
+  { label: "APP móvil", to: "/app-mobile" },
   { label: "Parque España II", to: "/parque-espana-2" },
-  { label: "Contacto", to: "/contacto" },
+  { label: "Contacto", to: "/contact" },
 ];
 
 const instalacionesLinks = [
   { label: "Horarios", to: "/facilities/schedules" },
   { label: "Vista virtual", to: "/facilities/virtual-view" },
   { label: "Actividades", to: "/facilities/activities" },
-  { label: "Galería", to: "/instalaciones/galeria" },
+  { label: "Galería", to: "/facilities/gallery" },
 ];
+
 
 export default function Header() {
   const [showInstalaciones, setShowInstalaciones] = useState(false);

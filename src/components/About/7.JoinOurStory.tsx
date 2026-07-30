@@ -3,7 +3,7 @@ import { AboutContent } from "../../constants/About";
 import ButtonLink from "../ButtonLink";
 
 export default function Essence() {
-  const { title, text } = AboutContent.joinUsStory;
+  const { title, text, buttons } = AboutContent.joinUsStory;
 
   return (
     <section className="w-full bg-[#F2F4F7]">
@@ -11,7 +11,7 @@ export default function Essence() {
       {/* Imagen: solo visible en celular */}
       <div
         className="h-60 w-full bg-cover bg-[right_center] md:hidden"
-        style={{ backgroundImage: `url(${JoinOutStoru})`  }}
+        style={{ backgroundImage: `url(${JoinOutStoru})` }}
       />
 
       {/* Layout de tablet/escritorio: imagen de fondo con texto superpuesto */}
@@ -27,8 +27,18 @@ export default function Essence() {
             {text}
           </p>
           <div className="mt-14 flex justify-center gap-16">
-            <ButtonLink to="" color="#029FD4" text="Conocer instalaciones" size={{ sm: "md", lg: "xl"}} />
-            <ButtonLink to="" color="#0097B2" text="Ver membresías" size={{ sm: "md", lg: "xl"}} />
+            <ButtonLink
+              to={buttons.facilities.to}
+              color="#029FD4"
+              text={buttons.facilities.text}
+              size={{ sm: "md", lg: "xl" }}
+            />
+            <ButtonLink
+              to={buttons.memberships.to}
+              color="#0097B2"
+              text={buttons.memberships.text}
+              size={{ sm: "md", lg: "xl" }}
+            />
           </div>
         </div>
       </div>
@@ -42,9 +52,18 @@ export default function Essence() {
           {text}
         </p>
         <div className="mt-8 flex flex-col items-center gap-4 text-white">
-          <ButtonLink to="" color="#029FD4" text="Conocer instalaciones" size={{ base: "sm" }} />
-          <ButtonLink to="" color="#0097B2" text="Ver membresías" size={{ base: "sm" }} />
-          
+          <ButtonLink
+            to={buttons.facilities.to}
+            color="#0097B2"
+            text={buttons.facilities.text}
+            size={{base: "sm", md: "sm", lg:"lg"}}
+          />
+          <ButtonLink
+            to={buttons.memberships.to}
+            color="#0097B2"
+            text={buttons.memberships.text}
+            size={{base: "sm", md: "sm", lg:"lg"}}
+          />
         </div>
       </div>
 

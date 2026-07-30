@@ -74,8 +74,9 @@ export const VirtualViewContent = {
     ["Ludoteca", "Cafetería y palapa", "Salones de usos múltiples"],
   ],
   buttons: {
-    contact: { text: "Contáctanos", to: "/contacto" },
-    activities: { text: "Ver actividades", to: "/actividades" },
+    contact: { text: "Contáctanos", to: "/contact" },
+    activities: { text: "Ver actividades", to: "/facilities/activities" },
+    
   },
 },
 

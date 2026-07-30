@@ -20,7 +20,7 @@ export const HomeContent = {
     ],
     imageAlt: "Elemento gráfico",
     buttonText: "Conoce nuestras instalaciones",
-    buttonLink: "/instalaciones",
+    buttonLink: "/facilities/virtual-view",
     counters: [
       { value: 6500, suffix: "", label: "Usuarios activos" },
       { value: 60, suffix: "", label: "Años de historia" },
@@ -109,7 +109,7 @@ installations: {
     },
   ],
   buttonText: "Ver instalaciones",
-  buttonLink: "/instalaciones",
+  buttonLink: "/facilities/virtual-view",
 },
 
   
@@ -130,11 +130,11 @@ app: {
     buttons: {
       activities: {
         label: "Conocer actividades",
-        to: "/actividades",
+        to: "/facilities/activities",
       },
       memberships: {
         label: "Membresías",
-        to: "/membresias",
+        to: "/memberships",
       },
     },
   },

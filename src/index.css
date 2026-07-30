@@ -25,8 +25,6 @@ font-family: poppins, sans-serif;
 
 
 
-css
-/* Color teal en los nombres de días de la semana (LUN, MAR, MIÉ...) */
 .sx__month-grid-day-name,
 .sx__week-grid__date-label,
 [class*="day-name"],
@@ -73,6 +71,29 @@ css
   font-weight: 800 !important;
 }
 
+/* Responsive: tablet */
+@media (max-width: 1023px) {
+  .sx__month-grid-day-name,
+  .sx__week-grid__date-label,
+  [class*="day-name"],
+  [class*="week-day"] {
+    font-size: 13px !important;
+  }
+}
+
+/* Responsive: mobile */
+@media (max-width: 639px) {
+  .sx__month-grid-day-name,
+  .sx__week-grid__date-label,
+  [class*="day-name"],
+  [class*="week-day"] {
+    font-size: 11px !important;
+  }
+
+  .sx__month-grid-day__header-date {
+    margin: 0 !important;
+  }
+}
 
 
 /* index.css */

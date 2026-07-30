@@ -1,6 +1,6 @@
 
 import Hero from '../components/About/1.Hero'
-import StatsCounter from "../components/StatsCounter";
+
 import Essence from "../components/About/3.Essence";
 import Pillars from "../components/About/4.Pillars";
 import OurHistory from "../components/About/5.OurHistory";
@@ -11,7 +11,6 @@ export default function About() {
     return (
         <main className="space-y-16 md:space-y-24">
             <Hero />
-            <StatsCounter />
             <Essence />
             <Pillars />
             <OurHistory />  

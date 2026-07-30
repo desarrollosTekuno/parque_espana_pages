@@ -132,7 +132,7 @@ export default function Footer() {
 
           <div className="mt-6 flex flex-wrap justify-center gap-2 sm:gap-3 lg:justify-start">
             <Link
-              to="/instalaciones/horarios"
+              to="/facilities/schedules"
               className="rounded-full bg-[#043351] px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800 sm:px-5 sm:text-base"
             >
               Horarios
