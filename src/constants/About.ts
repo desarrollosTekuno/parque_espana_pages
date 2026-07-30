@@ -60,8 +60,18 @@ export const AboutContent = {
   },
 
   joinUsStory: {
-    title: "Forma parte de nuestra historia",
-    text: "Más de seis décadas después, seguimos construyendo un espacio donde tradición, deporte y comunidad se unen para crear experiencias que trascienden generaciones."
-  }
+  title: "Forma parte de nuestra historia",
+  text: "Más de seis décadas después, seguimos construyendo un espacio donde tradición, deporte y comunidad se unen para crear experiencias que trascienden generaciones.",
+  buttons: {
+    facilities: {
+      text: "Ver instalaciones",
+      to: "/facilities/virtual-view",
+    },
+    memberships: {
+      text: "Ver membresías",
+      to: "/memberships",
+    },
+  },
+},
 
 };
