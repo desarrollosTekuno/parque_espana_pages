@@ -1,5 +1,5 @@
 import MembershipsHero from "@/assets/images/Memberships/TeamFamily.webp";
-import { MembershipsContent } from "../../constants/Memberships";
+import { MembershipsContent } from "../../constants/ParkSpain_1/Memberships";
 import Graphic_Element from "@/assets/images/Memberships/Graphic_Element.webp";
 import { AnimFadeUp } from "../Animations";
 

@@ -1,6 +1,6 @@
 import hero from "@/assets/images/About/hero.webp";
 import StatsCounter from "../StatsCounter";
-import { AboutContent } from "../../constants/About";
+import { AboutContent } from "../../constants/ParkSpain_1/About";
 
 export default function Hero() {
   const { title, description, imageAlt } = AboutContent.hero;

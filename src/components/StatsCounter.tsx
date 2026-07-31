@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { HomeContent } from "../constants/Home";  // ← Así
+import { HomeContent } from "../constants/ParkSpain_1/Home";  // ← Así
 
 function useCountUp(target: number, duration = 1500, interval = 5000) {
   const [count, setCount] = useState(0);

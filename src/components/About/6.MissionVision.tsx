@@ -1,7 +1,7 @@
 import CardBadge from "../CardBadge";
 import missionImg from "@/assets/images/About/mission.webp";
 import visionImg from "@/assets/images/About/vision.webp";
-import { AboutContent } from "../../constants/About";
+import { AboutContent } from "../../constants/ParkSpain_1/About";
 
 export default function MissionVision() {
     const { mission, vision } = AboutContent.missionVision;

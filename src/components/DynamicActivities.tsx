@@ -1,10 +1,23 @@
-import Cards from "../CardsImages";
-import Carousel from "../Carousel";
-import { HomeContent } from "../../constants/Home";
-import { AnimFadeUp } from "../Animations";
+import { useLocation } from "react-router-dom";
+import Cards from "./CardsImages";
+import Carousel from "./Carousel";
+
+// Configuraciones de Home para cada parque
+import { HomeContent as parque1Content } from "../constants/ParkSpain_1/Home";
+import { HomeContent as parque2Content } from "../constants/ParkSpain_2/Home";
+
+import { AnimFadeUp } from "./Animations";
 
 export default function Activities() {
-  const { title, descriptionParts, cards } = HomeContent.activities;
+  const location = useLocation();
+
+  // Detección del parque según la URL
+  const isParque2 = location.pathname.startsWith("/parque-espana-2");
+
+  // Selección dinámica de contenido
+  const content = isParque2 ? parque2Content : parque1Content;
+
+  const { title, descriptionParts, cards } = content.activities;
 
   return (
     <section className="bg-[#F2F4F7] mt-20 lg:mt-40">

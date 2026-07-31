@@ -1,5 +1,5 @@
 // Schedule.tsx
-import { ScheduleContent } from "../../../constants/Schedule";
+import { ScheduleContent } from "../../../constants/ParkSpain_1/Schedule";
 import { AnimFadeUp, AnimStaggerContainer, AnimStaggerItem } from "../../Animations";
 import GraphicElement1 from "@/assets/images/Facilities/Schedules/Graphic_Element_1.webp";
 import GraphicElement2 from "@/assets/images/Facilities/Schedules/Graphic_Element_2.webp";

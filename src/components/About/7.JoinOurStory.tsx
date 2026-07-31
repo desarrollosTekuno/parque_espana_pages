@@ -1,5 +1,5 @@
 import JoinOutStoru from "@/assets/images/About/joinOurStory.webp";
-import { AboutContent } from "../../constants/About";
+import { AboutContent } from "../../constants/ParkSpain_1/About";
 import ButtonLink from "../ButtonLink";
 
 export default function Essence() {

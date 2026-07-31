@@ -1,4 +1,4 @@
-import { AppMobileContent } from "../../constants/AppMobile";
+import { AppMobileContent } from "../../constants/ParkSpain_1/AppMobile";
 import HeroWaves from "@/assets/images/AppMobile/Hero.webp";
 import { AnimFadeUp } from "../Animations";
 

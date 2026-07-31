@@ -3,8 +3,8 @@ export const HomeContent = {
   hero: {
     title: "Aquí se vive el movimiento",
     description: "Deporte, cultura y comunidad en un mismo espacio.",
-    buttonText: "Descubre Parque España I",
-    buttonLink: "/parque-espana-1",
+    buttonText: "Descubre Parque España II",
+    buttonLink: "/parque-espana-2",
     imageAlt:
       "Jugador de tenis y mujer con vestimenta tradicional en Parque España",
   },
@@ -33,7 +33,7 @@ export const HomeContent = {
   activities: {
     title: "Un espacio pensado para convivir y disfrutar",
     descriptionParts: [
-      { text: "Parque España Puebla", strong: true },
+      { text: "Parque España Puebla II", strong: true },
       { text: " es un club social, deportivo y cultural enfocado en la convivencia familiar, el bienestar y la recreación. Contamos con ", strong: false,},
       { text: "instalaciones deportivas, actividades culturales",strong: true,},
       { text: " y espacios diseñados para que personas de todas las edades disfruten de una comunidad activa, moderna y llena de tradición.",strong: false,},

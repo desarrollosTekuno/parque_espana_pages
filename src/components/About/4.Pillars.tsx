@@ -2,7 +2,7 @@ import Card from "../CardShort";
 import pillar1Img from "@/assets/images/About/pillar1.webp";
 import pillar2Img from "@/assets/images/About/pillar2.webp";
 import pillar3Img from "@/assets/images/About/pillar3.webp";
-import { AboutContent } from "../../constants/About";
+import { AboutContent } from "../../constants/ParkSpain_1/About";
 
 export default function Pillars() {
   const { pillars } = AboutContent.pillars;

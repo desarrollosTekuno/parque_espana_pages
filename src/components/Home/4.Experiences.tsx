@@ -1,4 +1,4 @@
-import { HomeContent } from "../../constants/Home";
+import { HomeContent } from "../../constants/ParkSpain_1/Home";
 import { AnimFadeUp, AnimScale } from "../Animations";
 import Racket from "@/assets/images/Home/Racket.webp";
 import Flags from "@/assets/images/Home/Flags.webp";

@@ -1,4 +1,4 @@
-import { AppMobileContent } from "../../constants/AppMobile";
+import { AppMobileContent } from "../../constants/ParkSpain_1/AppMobile";
 import { AnimFadeUp, AnimSlideRight } from "../Animations";
 import Mockup from "@/assets/images/AppMobile/Mockup.webp";
 import CheckIcon from "@/assets/images/AppMobile/Check.webp";

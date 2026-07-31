@@ -1,4 +1,4 @@
-import { VirtualViewContent } from "../../../constants/VirtualView";
+import { VirtualViewContent } from "../../../constants/ParkSpain_1/VirtualView";
 import { AnimFadeUp } from "../../Animations";
 import ButtonLink from "../../ButtonLink";
 

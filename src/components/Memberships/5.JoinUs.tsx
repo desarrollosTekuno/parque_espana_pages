@@ -1,5 +1,5 @@
 // JoinUs.tsx
-import { MembershipsContent } from "../../constants/Memberships";
+import { MembershipsContent } from "../../constants/ParkSpain_1/Memberships";
 import { AnimFadeUp } from "../Animations";
 import ButtonLink from "../ButtonLink";
 

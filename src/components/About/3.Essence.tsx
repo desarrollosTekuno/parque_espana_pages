@@ -1,7 +1,7 @@
 import essenceBg from "@/assets/images/About/essence.webp";
 import personImg from "@/assets/images/About/EssenceWithOutLine.webp";
 import waveImg from "@/assets/images/About/EssenceLines.webp";
-import { AboutContent } from "../../constants/About";
+import { AboutContent } from "../../constants/ParkSpain_1/About";
 
 export default function Essence() {
   const { title, text1, text2 } = AboutContent.essence;

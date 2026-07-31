@@ -1,6 +1,6 @@
-import Logo from "@/assets/icons/Logo.webp";
+import Logo from "@/assets/icons/Logo_pe1.webp";
 import { AnimFadeUp } from "../Animations";
-import { HomeContent } from "../../constants/Home";
+import { HomeContent } from "../../constants/ParkSpain_1/Home";
 import ButtonLink from "../ButtonLink";
 
 export default function ParkExperience() {

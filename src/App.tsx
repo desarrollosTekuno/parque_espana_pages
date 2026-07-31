@@ -2,8 +2,8 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import Spinner from "./components/Spinner";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Header from "./components/DynamicHeader";
+import Footer from "./components/DynamicFooter";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Memberships from "./pages/Memberships";
@@ -44,6 +44,8 @@ function App() {
         <Route path="facilities/gallery" element={<Gallery />} />
         <Route path="/app-mobile" element={<AppMobile />} />
         <Route path="/contact" element={<Contact />} />
+
+         <Route path="/parque-espana-2" element={<Home />} />
       </Routes>
       <Footer />
     </>
