@@ -1,12 +1,12 @@
 import { useLocation } from "react-router-dom";
-import Cards from "./CardsImages";
-import Carousel from "./Carousel";
+import Cards from "../CardsImages";
+import Carousel from "../Carousel";
 
 // Configuraciones de Home para cada parque
-import { HomeContent as parque1Content } from "../constants/ParkSpain_1/Home";
-import { HomeContent as parque2Content } from "../constants/ParkSpain_2/Home";
+import { HomeContent as parque1Content } from "../../constants/ParkSpain_1/Home";
+import { HomeContent as parque2Content } from "../../constants/ParkSpain_2/Home";
 
-import { AnimFadeUp } from "./Animations";
+import { AnimFadeUp } from "../Animations";
 
 export default function Activities() {
   const location = useLocation();

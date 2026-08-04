@@ -6,11 +6,11 @@ import tennisParque1 from "@/assets/images/Home/Hero_pe1.webp";
 import tennisParque2 from "@/assets/images/Home/Hero_pe2.webp"; 
 
 // Configuraciones de Home para cada parque
-import { HomeContent as parque1Content } from "../constants/ParkSpain_1/Home";
-import { HomeContent as parque2Content } from "../constants/ParkSpain_2/Home";
+import { HomeContent as parque1Content } from "../../constants/ParkSpain_1/Home";
+import { HomeContent as parque2Content } from "../../constants/ParkSpain_2/Home";
 
-import { AnimFadeUp, AnimSlideRight } from "./Animations";
-import ButtonLink from "./ButtonLink";
+import { AnimFadeUp, AnimSlideRight } from "../Animations";
+import ButtonLink from "../ButtonLink";
 
 export default function Hero() {
   const location = useLocation();

@@ -9,25 +9,7 @@ export const HomeContent = {
       "Jugador de tenis y mujer con vestimenta tradicional en Parque España",
   },
 
-  stats: {
-    title: "Tradición, deporte y comunidad en Puebla",
-    descriptionParts: [
-      { text: "Un espacio donde ", strong: false },
-      { text: "familias, cultura y bienestar", strong: true },
-      { text: " se unen para crear ", strong: false },
-      { text: "experiencias memorables", strong: true },
-      { text: " para todas las generaciones.", strong: false },
-    ],
-    imageAlt: "Elemento gráfico",
-    buttonText: "Conoce nuestras instalaciones",
-    buttonLink: "/facilities/virtual-view",
-    counters: [
-      { value: 6500, suffix: "", label: "Usuarios activos" },
-      { value: 60, suffix: "", label: "Años de historia" },
-      { value: 15, suffix: "", label: "Disciplinas deportivas" },
-      { value: 1, suffix: "M", label: "de experiencias compartidas" },
-    ],
-  },
+
 
 
   activities: {
@@ -56,31 +38,6 @@ export const HomeContent = {
   },
 
 
-  experience: {
-  title: "Vive una experiencia integral",
-  items: [
-    {
-      id: 1,
-      title: "Deporte",
-      description: "actividades para un estilo de vida activo",
-    },
-    {
-      id: 2,
-      title: "Comunidad",
-      description: "Espacios para convivir y fortalecer vínculos",
-    },
-    {
-      id: 3,
-      title: "Bienestar",
-      description: "Ambientes seguros y cómodos para toda la familia",
-    },
-    {
-      id: 4,
-      title: "Cultura y tradición",
-      description: "Eventos y actividades que preservan nuestras raíces",
-    },
-  ],
-},
 
 
 
@@ -105,7 +62,7 @@ installations: {
     },
     {
       id: 5,
-      name: "Jardines"
+      name: "Jardines "
     },
   ],
   buttonText: "Ver instalaciones",
@@ -113,19 +70,10 @@ installations: {
 },
 
   
-app: {
-  title: "Tu parque desde cualquier lugar",
-  description: "Consulta información, realiza pagos, reserva amenidades y accede a los servicios del club desde la app móvil",
-  googlePlayLabel: "Google Play",
-  googlePlayAlt: "Google Play",
-  appStoreLabel: "App Store",
-  appStoreAlt: "App Store",
-},
-
 
 
   experiencePark: {
-   title: "Vive la experiencia Parque España",
+   title: "Vive la experiencia Parque España II",
     description: "Disfruta instalaciones deportivas, actividades culturales y espacios diseñados para compartir momentos inolvidables en familia.",
     buttons: {
       activities: {

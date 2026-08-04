@@ -39,7 +39,7 @@ export default function CardBadge({
         <h3 className="text-left text-xl sm:text-2xl lg:text-[34px] font-extrabold text-[#D31E28]">
           {title}
         </h3>
-        <p className="mt-5 text-left text-sm sm:text-lg lg:text-[24px] text-[#3C3C3C] leading-snug">
+        <p className="mt-5 text-left text-[16px] sm:text-[18px] lg:text-[21px] text-[#3C3C3C] leading-snug">
           {text}
         </p>
       </div>

@@ -26,7 +26,7 @@ export default function Timeline({ items }: TimelineProps) {
   const lastIndex = items.length - 1;
 
   return (
-    <div className="w-full overflow-visible px-6 py-16 md:px-10">
+    <div className="w-full overflow-visible px-4 py-12 md:px-10">
 
       {/* ===== Versión horizontal: solo desde lg ===== */}
       <div className="relative hidden lg:flex lg:justify-between">
@@ -75,11 +75,11 @@ export default function Timeline({ items }: TimelineProps) {
               </button>
 
               {isActive && (
-                <div className="absolute left-0 top-full z-20 mt-1 w-72 rounded-xl bg-[#E5E4E4] p-6 text-left">
+                <div className="absolute left-0 top-full z-20 mt-1 w-72 rounded-xl bg-[#E5E4E4] p-6 text-left shadow-xl">
                   <h3 className="text-lg font-extrabold text-[#3C3C3C]">
                     {item.title}
                   </h3>
-                  <p className="mt-3 text-lg leading-snug text-[#3C3C3C]">
+                  <p className="mt-3 text-justify leading-snug text-[#3C3C3C] text-[16px] sm:text-[18px] lg:text-[21px]">
                     {item.text}
                   </p>
                 </div>
@@ -89,42 +89,43 @@ export default function Timeline({ items }: TimelineProps) {
         })}
       </div>
 
-      {/* ===== Versión vertical apilada: tablet/celular ===== */}
-      <div className="relative flex flex-col lg:hidden">
+      {/* ===== Versión vertical apilada: tablet/celular (Línea pegada a la izquierda) ===== */}
+      <div className="relative flex flex-col lg:hidden pl-2">
 
+        {/* Línea vertical pegada al extremo izquierdo */}
         <div
-          className="absolute left-10 top-0 bottom-0 z-0 w-[4px]"
+          className="absolute left-2.5 top-0 bottom-0 z-0 w-[4px]"
           style={{
             background: `linear-gradient(to bottom, rgb(${GRADIENT_START.r},${GRADIENT_START.g},${GRADIENT_START.b}), rgb(${GRADIENT_END.r},${GRADIENT_END.g},${GRADIENT_END.b}))`,
           }}
         />
 
         {items.map((item, index) => {
-          const isLast = index == lastIndex;
+          const isLast = index === lastIndex;
           const t = index / lastIndex;
           const dotColor = interpolateColor(t);
 
           return (
-            <div key={item.year} className="relative z-10 flex gap-6 pb-12 last:pb-0">
+            <div key={item.year} className="relative z-10 flex gap-3 pb-10 last:pb-0">
 
-              {/* Columna del punto */}
-              <div className="flex w-20 flex-shrink-0 flex-col items-center">
+              {/* Columna del punto (Alineada perfectamente sobre la línea) */}
+              <div className="flex w-5 flex-shrink-0 flex-col items-center pt-2">
                 <div
-                  className="mt-2 h-6 w-6 rounded-full"
+                  className="h-5 w-5 rounded-full shadow-sm"
                   style={{ backgroundColor: dotColor }}
                 />
               </div>
 
               {/* Contenido: imagen + año + texto */}
               <div className="flex-1">
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-3">
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="h-20 w-20 flex-shrink-0 rounded-full object-cover shadow-md"
+                    className="h-24 w-24 sm:h-28 sm:w-28 flex-shrink-0 rounded-full object-cover shadow-md"
                   />
                   <span
-                    className={`whitespace-nowrap rounded-xl px-5 py-1 text-lg font-bold text-[#3C3C3C] shadow-lg ${
+                    className={`whitespace-nowrap rounded-xl px-4 py-1 text-base sm:text-lg font-bold text-[#3C3C3C] shadow-lg ${
                       isLast ? "bg-[#004AAD] text-white" : "bg-[#F2A900]"
                     }`}
                   >
@@ -132,11 +133,11 @@ export default function Timeline({ items }: TimelineProps) {
                   </span>
                 </div>
 
-                <div className="mt-4 rounded-xl bg-[#E5E4E4] p-5 text-left">
+                <div className="mt-4 rounded-xl bg-[#E5E4E4] p-4 text-left">
                   <h3 className="text-base sm:text-lg font-extrabold text-[#3C3C3C]">
                     {item.title}
                   </h3>
-                  <p className="mt-2 text-sm sm:text-lg leading-snug text-[#3C3C3C]">
+                  <p className="mt-2 text-justify leading-snug text-[#3C3C3C] text-[15px] sm:text-[18px]">
                     {item.text}
                   </p>
                 </div>

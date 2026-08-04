@@ -7,7 +7,7 @@ export const headerConfig = {
 
     {
       label: "Nosotros",
-      to: "/parque-espana-2/about",
+      
     },
 
     {
@@ -19,12 +19,12 @@ export const headerConfig = {
   
 nosotrosLinks: [
   {
-    label: "Quiénes somos",
-    to: "/parque-espana-2/about/who-we-are",
+    label: "¿Quiénes somos?",
+    to: "/parque-espana-2/about",
   },
   {
     label: "Ligas de interés",
-    to: "/parque-espana-2/about/links-of-interest",
+    to: "/parque-espana-2/leagues-of-interest",
   },
 ],
 

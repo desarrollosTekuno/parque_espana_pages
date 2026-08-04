@@ -1,12 +1,12 @@
 import { useLocation } from "react-router-dom";
-import FlipCardGrid, { FlipCard } from "./CardFlip";
+import FlipCardGrid, { FlipCard } from "../CardFlip";
 
 // Configuraciones de Home para cada parque
-import { HomeContent as parque1Content } from "../constants/ParkSpain_1/Home";
-import { HomeContent as parque2Content } from "../constants/ParkSpain_2/Home";
+import { HomeContent as parque1Content } from "../../constants/ParkSpain_1/Home";
+import { HomeContent as parque2Content } from "../../constants/ParkSpain_2/Home";
 
-import { AnimFadeUp, AnimScale } from "./Animations";
-import ButtonLink from "./ButtonLink";
+import { AnimFadeUp, AnimScale } from "../Animations";
+import ButtonLink from "../ButtonLink";
 
 export default function Installations() {
   const location = useLocation();

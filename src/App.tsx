@@ -13,6 +13,7 @@ import Activities from "./pages/Facilities/Activities";
 import Gallery from "./pages/Facilities/Gallery";
 import AppMobile from "./pages/AppMobile";
 import Contact from "./pages/Contact";
+import Leagues from "./pages/Leagues";
 import ScrollTop from "./components/ScrollTop";
 
 function App() {
@@ -46,6 +47,8 @@ function App() {
         <Route path="/contact" element={<Contact />} />
 
          <Route path="/parque-espana-2" element={<Home />} />
+         <Route path="/parque-espana-2/about" element={<About />} />
+         <Route path="/parque-espana-2/leagues-of-interest" element={<Leagues />} />
       </Routes>
       <Footer />
     </>

@@ -6,19 +6,6 @@ export const AboutContent = {
     imageAlt: "Mujeres con vestimenta tradicional en Parque España",
   },
 
-  // stats: {
-  //   title: "Tradición, deporte y comunidad en Puebla",
-  //   description:
-  //     "Un espacio donde familias, cultura y bienestar se unen para crear experiencias memorables para todas las generaciones.",
-  //   buttonText: "Conoce nuestras instalaciones",
-  //   buttonLink: "/instalaciones",
-  //   counters: [
-  //     { value: 6500, suffix: "", label: "Usuarios activos" },
-  //     { value: 60, suffix: "", label: "Años de historia" },
-  //     { value: 10, suffix: "", label: "Disciplinas deportivas" },
-  //     { value: 1, suffix: "M", label: "de experiencias compartidas" },
-  //   ],
-  // },
 
   essence: {
     title: "Nuestra esencia",
@@ -64,7 +51,7 @@ export const AboutContent = {
   text: "Más de seis décadas después, seguimos construyendo un espacio donde tradición, deporte y comunidad se unen para crear experiencias que trascienden generaciones.",
   buttons: {
     facilities: {
-      text: "Ver instalaciones",
+      text: "Conocer instalaciones",
       to: "/facilities/virtual-view",
     },
     memberships: {

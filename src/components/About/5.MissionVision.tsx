@@ -6,9 +6,9 @@ import { AboutContent } from "../../constants/ParkSpain_1/About";
 export default function MissionVision() {
     const { mission, vision } = AboutContent.missionVision;
     return (
-        <section className="px-10 py-26 md:px-10 lg:wrap-80">
+        <section className="px-10 sm:px-10 lg:mt-85 lg:wrap-80">
 
-            <div className="mx-auto mt-40 flex max-w-[1400px] flex-col items-start gap-8 md:flex-row">
+            <div className="mx-auto  flex max-w-[1400px] flex-col items-start gap-8 sm:flex-row">
                 <CardBadge
                   image={missionImg}
                   imagePosition="top-left"
