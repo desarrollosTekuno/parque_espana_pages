@@ -1,4 +1,4 @@
-import { MembershipsContent } from "../../constants/Memberships";
+import { MembershipsContent } from "../../constants/ParkSpain_1/Memberships";
 import Benefits1 from "@/assets/images/Memberships/Benefits-1.webp";
 import Benefits2 from "@/assets/images/Memberships/Benefits-2.webp";
 import Benefits3 from "@/assets/images/Memberships/Benefits-3.webp";

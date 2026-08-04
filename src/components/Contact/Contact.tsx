@@ -1,5 +1,5 @@
 import { AnimFadeUp, AnimSlideRight } from "../Animations";
-import { ContactContent } from "../../constants/Contact";
+import { ContactContent } from "../../constants/ParkSpain_1/Contact";
 import ContactForm from "../ContactForm";
 import ContactMap from "../ContactMap";
 import Facebook from "@/assets/icons/Contact/Facebook.webp";

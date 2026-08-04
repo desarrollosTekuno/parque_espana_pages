@@ -1,11 +1,27 @@
-// Carousel.tsx
 import { useCallback, useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import Swimming from "@/assets/images/Home/Swimming.webp";
 
-export default function Carousel({ items }: any) {
+interface CarouselItem {
+  id: string | number;
+  name: string;
+  image?: string;
+  imageUrl?: string;
+}
+
+interface CarouselProps {
+  items: CarouselItem[];
+}
+
+export default function Carousel({ items }: CarouselProps) {
+  const location = useLocation();
+
+  // Detección del parque según la ruta actual
+  const isParque2 = location.pathname.startsWith("/parque-espana-2");
+
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
     loop: true,
@@ -43,31 +59,46 @@ export default function Carousel({ items }: any) {
       <div className="w-full max-w-full overflow-hidden" ref={emblaRef}>
         {/* Sin gap aquí — el espacio ahora vive en el padding de cada slide */}
         <div className="flex">
-          {items.map((item: any) => (
-            <div
-              key={item.id}
-              className="min-w-0 shrink-0 basis-full pr-1 sm:basis-1/2 sm:pr-3 lg:basis-1/3 lg:pr-3"
-            >
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer group">
-                <img
-                  src={Swimming}
-                  alt={item.name}
-                  loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-                <motion.div
-                  className="absolute inset-0 bg-black/40 flex items-end justify-center p-4"
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <p className="text-white text-[20px] sm:text-[20px] lg:text-[25px] font-bold text-center">
-                    {item.name}
-                  </p>
-                </motion.div>
+          {items.map((item: any) => {
+            // Determina la imagen a mostrar:
+            // 1. Si el ítem ya trae imagen desde la API/constantes, usa esa.
+            // 2. Si es Parque España 2 sin imagen, queda en null (para renderizar gris).
+            // 3. Si es Parque España 1, usa 'Swimming'.
+            const itemImage = item.image || item.imageUrl;
+            const currentImage = itemImage || (!isParque2 ? Swimming : null);
+
+            return (
+              <div
+                key={item.id}
+                className="min-w-0 shrink-0 basis-full pr-1 sm:basis-1/2 sm:pr-3 lg:basis-1/3 lg:pr-3"
+              >
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer group bg-gray-300">
+                  {currentImage ? (
+                    <img
+                      src={currentImage}
+                      alt={item.name}
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  ) : (
+                    /* Espacio reservado en gris para Parque España 2 cuando no hay imagen */
+                    <div className="absolute inset-0 bg-gray-300 w-full h-full" />
+                  )}
+
+                  <motion.div
+                    className="absolute inset-0 bg-black/40 flex items-end justify-center p-4"
+                    initial={{ opacity: 0 }}
+                    whileHover={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <p className="text-white text-[20px] sm:text-[20px] lg:text-[25px] font-bold text-center">
+                      {item.name}
+                    </p>
+                  </motion.div>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 

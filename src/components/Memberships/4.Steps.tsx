@@ -1,5 +1,5 @@
 // Steps.tsx
-import { MembershipsContent } from "../../constants/Memberships";
+import { MembershipsContent } from "../../constants/ParkSpain_1/Memberships";
 import Separator from "@/assets/images/Memberships/Separator.webp";
 import { AnimFadeUp, AnimStaggerContainer, AnimStaggerItem } from "../Animations";
 

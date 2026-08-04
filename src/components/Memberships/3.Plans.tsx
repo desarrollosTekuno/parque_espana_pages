@@ -1,4 +1,4 @@
-import { MembershipsContent } from "../../constants/Memberships";
+import { MembershipsContent } from "../../constants/ParkSpain_1/Memberships";
 import CardLong from "../CardLong";
 import { AnimStaggerContainer } from "../Animations";
 import Family from "@/assets/images/Memberships/Family_Membership.webp";

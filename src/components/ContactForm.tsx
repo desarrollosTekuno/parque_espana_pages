@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from "react";
-import { ContactContent } from "../constants/Contact";
+import { ContactContent } from "../constants/ParkSpain_1/Contact";
 
 export default function ContactForm() {
   const { form } = ContactContent;

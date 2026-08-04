@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { GalleryContent } from "../../../constants/Gallery";
+import { GalleryContent } from "../../../constants/ParkSpain_1/Gallery";
 
 const albumImages: Record<number, string> = {
   // 1: CruzDeMayo2026,

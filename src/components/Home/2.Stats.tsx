@@ -1,6 +1,6 @@
 import Graphic_Element from "@/assets/images/Home/Graphic_Element.webp";
 import StatsCounter from "../StatsCounter";
-import { HomeContent } from "../../constants/Home";
+import { HomeContent } from "../../constants/ParkSpain_1/Home";
 import { AnimFadeUp, AnimScale } from "../Animations";
 import ButtonLink from "../ButtonLink";
 

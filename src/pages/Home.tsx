@@ -1,10 +1,10 @@
-import Hero from '../components/Home/1.Hero'
+import Hero from '../components/Home/1.DynamicHero'
 import Stats from '../components/Home/2.Stats'
-import Activities from '../components/Home/3.Activities'
+import Activities from '../components/Home/3.DynamicActivities'
 import Experience from '../components/Home/4.Experiences'
-import Installations from '../components/Home/5.Installations'
+import Installations from '../components/Home/5.DynamicInstallations'
 import App from '../components/Home/6.App'
-import ParkExperience from '../components/Home/7.ExperiencePark'
+import ParkExperience from '../components/Home/7.DynamicExperiencePark'
 
 
 

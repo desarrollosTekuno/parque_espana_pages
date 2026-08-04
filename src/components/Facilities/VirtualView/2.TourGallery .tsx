@@ -1,6 +1,6 @@
 // TourGallery.tsx
 import { useState } from "react";
-import { VirtualViewContent } from "../../../constants/VirtualView";
+import { VirtualViewContent } from "../../../constants/ParkSpain_1/VirtualView";
 
 import Interior from "@/assets/images/Facilities/VirtualView/Interior.webp";
 import Exterior from "@/assets/images/Facilities/VirtualView/Exterior.webp";

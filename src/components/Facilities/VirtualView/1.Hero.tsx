@@ -1,7 +1,7 @@
 // Hero.tsx (VirtualView)
 import HeroBg from "@/assets/images/Facilities/VirtualView/Hero.webp";
 import Graphic_Element from "@/assets/images/Facilities/VirtualView/Graphic_Element.webp";
-import { VirtualViewContent } from "../../../constants/VirtualView";
+import { VirtualViewContent } from "../../../constants/ParkSpain_1/VirtualView";
 import { AnimFadeUp } from "../../Animations";
 
 export default function Hero() {
