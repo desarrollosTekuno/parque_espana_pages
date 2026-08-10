@@ -49,6 +49,12 @@ function App() {
          <Route path="/parque-espana-2" element={<Home />} />
          <Route path="/parque-espana-2/about" element={<About />} />
          <Route path="/parque-espana-2/leagues-of-interest" element={<Leagues />} />
+        <Route path="/parque-espana-2/memberships" element={<Memberships />} />
+        <Route path="/parque-espana-2/facilities/schedules" element={<Schedules />} />
+        <Route path="/parque-espana-2/facilities/virtual-view" element={<VirtualView />} />
+        <Route path="/parque-espana-2/facilities/gallery" element={<Gallery />} />
+        <Route path="/parque-espana-2/app-mobile" element={<AppMobile />} />
+        <Route path="/parque-espana-2/contact" element={<Contact />} />
       </Routes>
       <Footer />
     </>

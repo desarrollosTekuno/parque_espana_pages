@@ -55,11 +55,11 @@ export default function ParkExperience() {
             </AnimFadeUp>
 
             {/* Un solo botón centrado */}
-            <AnimFadeUp className="flex justify-center text-white mb-40 w-full">
+            <AnimFadeUp className="flex justify-center text-[#F2F4F7] mb-40 w-full display:none">
               <ButtonLink
                 text={buttons.activities.label}
                 to={buttons.activities.to}
-                color="#0097b2"
+                color="#F2F4F7"
                 size={{ base: "sm", sm: "sm", lg: "lg" }}
               />
             </AnimFadeUp>

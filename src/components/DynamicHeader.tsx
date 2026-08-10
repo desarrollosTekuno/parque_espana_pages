@@ -8,7 +8,6 @@ import Logo2 from "@/assets/icons/Logo_pe2.webp";
 import { headerConfig as parque1 } from "../constants/ParkSpain_1/Header";
 import { headerConfig as parque2 } from "../constants/ParkSpain_2/Header";
 
-// 1. 'to' ahora es opcional (?) para evitar el error de TypeScript
 interface HeaderLink {
   label: string;
   to?: string;
@@ -18,7 +17,7 @@ interface HeaderConfig {
   mainLinks: HeaderLink[];
   nosotrosLinks?: HeaderLink[];
   secondaryLinks: HeaderLink[];
-  instalacionesLinks: HeaderLink[];
+  instalacionesLinks?: HeaderLink[];
 }
 
 export default function Header() {
@@ -35,6 +34,11 @@ export default function Header() {
     secondaryLinks = [],
     instalacionesLinks = [],
   } = config;
+
+  // Filtrar "Actividades" del submenú de instalaciones solo para Parque España 2
+  const filteredInstalacionesLinks = isParque2
+    ? instalacionesLinks.filter((item) => item.label.toLowerCase() !== "actividades")
+    : instalacionesLinks;
 
   const [showNosotros, setShowNosotros] = useState(false);
   const [showInstalaciones, setShowInstalaciones] = useState(false);
@@ -75,17 +79,17 @@ export default function Header() {
                 key={link.to ?? index}
                 className="relative flex items-center h-full"
                 onMouseEnter={() => {
-                  if (link.label == "Nosotros" && nosotrosLinks.length > 0) {
+                  if (link.label === "Nosotros" && nosotrosLinks.length > 0) {
                     setShowNosotros(true);
                   }
                 }}
                 onMouseLeave={() => {
-                  if (link.label == "Nosotros") {
+                  if (link.label === "Nosotros") {
                     setShowNosotros(false);
                   }
                 }}
               >
-                {link.label == "Nosotros" && nosotrosLinks.length > 0 ? (
+                {link.label === "Nosotros" && nosotrosLinks.length > 0 ? (
                   <button className="flex items-center hover:text-blue-300 transition-colors">
                     {link.label}
                   </button>
@@ -95,7 +99,7 @@ export default function Header() {
                   </Link>
                 )}
 
-                {link.label == "Nosotros" &&
+                {link.label === "Nosotros" &&
                   showNosotros &&
                   nosotrosLinks.length > 0 && (
                     <ul className="absolute left-1/2 -translate-x-1/2 top-full w-52 rounded-b-md bg-white text-gray-800 shadow-lg py-2">
@@ -115,30 +119,32 @@ export default function Header() {
             ))}
 
             {/* INSTALACIONES DESKTOP */}
-            <li
-              className="relative flex items-center h-full"
-              onMouseEnter={() => setShowInstalaciones(true)}
-              onMouseLeave={() => setShowInstalaciones(false)}
-            >
-              <button className="flex items-center hover:text-blue-300 transition-colors">
-                Instalaciones
-              </button>
+            {filteredInstalacionesLinks.length > 0 && (
+              <li
+                className="relative flex items-center h-full"
+                onMouseEnter={() => setShowInstalaciones(true)}
+                onMouseLeave={() => setShowInstalaciones(false)}
+              >
+                <button className="flex items-center hover:text-blue-300 transition-colors">
+                  Instalaciones
+                </button>
 
-              {showInstalaciones && instalacionesLinks.length > 0 && (
-                <ul className="absolute left-1/2 -translate-x-1/2 top-full w-48 rounded-b-md bg-white text-gray-800 shadow-lg py-2">
-                  {instalacionesLinks.map((item, subIndex) => (
-                    <li key={item.to ?? subIndex}>
-                      <Link
-                        to={item.to ?? "#"}
-                        className="block px-4 py-2 text-sm text-center hover:bg-gray-100"
-                      >
-                        {item.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
+                {showInstalaciones && (
+                  <ul className="absolute left-1/2 -translate-x-1/2 top-full w-48 rounded-b-md bg-white text-gray-800 shadow-lg py-2">
+                    {filteredInstalacionesLinks.map((item, subIndex) => (
+                      <li key={item.to ?? subIndex}>
+                        <Link
+                          to={item.to ?? "#"}
+                          className="block px-4 py-2 text-sm text-center hover:bg-gray-100"
+                        >
+                          {item.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            )}
 
             {/* LINKS SECUNDARIOS */}
             {secondaryLinks.map((link, index) => (
@@ -174,9 +180,8 @@ export default function Header() {
             <ul className="flex flex-col divide-y divide-white/10 px-6 py-4 text-sm">
               {mainLinks.map((link, index) => (
                 <li key={link.to ?? index} className="flex flex-col justify-center">
-                  {link.label == "Nosotros" && nosotrosLinks.length > 0 ? (
+                  {link.label === "Nosotros" && nosotrosLinks.length > 0 ? (
                     <>
-                      {/* BOTÓN NOSOTROS EN MOBILE */}
                       <button
                         type="button"
                         className="flex w-full items-center justify-between py-3 font-bold hover:text-blue-300 transition-colors text-left"
@@ -191,7 +196,6 @@ export default function Header() {
                         />
                       </button>
 
-                      {/* SUBMENÚ NOSOTROS */}
                       {mobileNosotrosOpen && (
                         <ul className="mb-2 flex flex-col gap-1 pl-4">
                           {nosotrosLinks.map((item, subIndex) => (
@@ -221,37 +225,39 @@ export default function Header() {
               ))}
 
               {/* INSTALACIONES MOBILE */}
-              <li className="flex flex-col justify-center">
-                <button
-                  type="button"
-                  className="flex w-full items-center justify-between py-3 font-bold hover:text-blue-300 transition-colors text-left"
-                  onClick={() => setMobileInstalacionesOpen((prev) => !prev)}
-                >
-                  <span>Instalaciones</span>
-                  <ChevronDown
-                    size={20}
-                    className={`transition-transform duration-200 text-white/80 ${
-                      mobileInstalacionesOpen ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
+              {filteredInstalacionesLinks.length > 0 && (
+                <li className="flex flex-col justify-center">
+                  <button
+                    type="button"
+                    className="flex w-full items-center justify-between py-3 font-bold hover:text-blue-300 transition-colors text-left"
+                    onClick={() => setMobileInstalacionesOpen((prev) => !prev)}
+                  >
+                    <span>Instalaciones</span>
+                    <ChevronDown
+                      size={20}
+                      className={`transition-transform duration-200 text-white/80 ${
+                        mobileInstalacionesOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
 
-                {mobileInstalacionesOpen && (
-                  <ul className="mb-2 flex flex-col gap-1 pl-4">
-                    {instalacionesLinks.map((item, subIndex) => (
-                      <li key={item.to ?? subIndex}>
-                        <Link
-                          to={item.to ?? "#"}
-                          className="block py-2 text-base text-white/70 hover:text-blue-300"
-                          onClick={closeMobileMenu}
-                        >
-                          {item.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
+                  {mobileInstalacionesOpen && (
+                    <ul className="mb-2 flex flex-col gap-1 pl-4">
+                      {filteredInstalacionesLinks.map((item, subIndex) => (
+                        <li key={item.to ?? subIndex}>
+                          <Link
+                            to={item.to ?? "#"}
+                            className="block py-2 text-base text-white/70 hover:text-blue-300"
+                            onClick={closeMobileMenu}
+                          >
+                            {item.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              )}
 
               {secondaryLinks.map((link, index) => (
                 <li key={link.to ?? index} className="flex flex-col justify-center">

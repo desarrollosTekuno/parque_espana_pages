@@ -1,5 +1,6 @@
-// Schedule.tsx
-import { ScheduleContent } from "../../../constants/ParkSpain_1/Schedule";
+import { useLocation } from "react-router-dom";
+import { ScheduleContent as parque1Content } from "../../../constants/ParkSpain_1/Schedule";
+import { ScheduleContent as parque2Content } from "../../../constants/ParkSpain_2/Schedule";
 import { AnimFadeUp, AnimStaggerContainer, AnimStaggerItem } from "../../Animations";
 import GraphicElement1 from "@/assets/images/Facilities/Schedules/Graphic_Element_1.webp";
 import GraphicElement2 from "@/assets/images/Facilities/Schedules/Graphic_Element_2.webp";
@@ -7,7 +8,11 @@ import GraphicElement2 from "@/assets/images/Facilities/Schedules/Graphic_Elemen
 const rowColors = ["#048BA3", "#245089", "#5F6B7A"];
 
 export default function Schedule() {
-  const { title, columns } = ScheduleContent;
+  const location = useLocation();
+
+  // Detección de la ruta para conmutar solo el objeto de textos/contenido
+  const isParque2 = location.pathname.startsWith("/parque-espana-2");
+  const { title, columns } = isParque2 ? parque2Content : parque1Content;
 
   return (
     <section className="relative overflow-hidden bg-[#F2F4F7] mt-20">
@@ -21,8 +26,8 @@ export default function Schedule() {
         <div className="mt-10 grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-8 lg:mt-16 lg:gap-12">
           {columns.map((column, colIndex) => (
             <AnimFadeUp key={column.id} className="relative">
-              {/* Puntos decorativos: solo detrás de la primera columna */}
-              {colIndex == 0 && (
+              {/* Elemento gráfico 1 (Mismas imágenes y diseño para ambos parques) */}
+              {colIndex === 0 && (
                 <img
                   src={GraphicElement1}
                   alt=""
@@ -31,14 +36,14 @@ export default function Schedule() {
                 />
               )}
 
-              {/* Encabezado tipo pill gris */}
+              {/* Encabezado con el label dinámico */}
               <div className="relative rounded-full bg-[#EBEBEB] px-6 py-3 text-center sm:px-10 sm:py-3 lg:px-12 lg:py-5">
                 <h3 className="font-bold text-black text-[22px] sm:text-[22px] lg:text-[30px]">
                   {column.label}
                 </h3>
               </div>
 
-              {/* Filas de horario */}
+              {/* Filas con time y description dinámicos */}
               <AnimStaggerContainer className="mt-6 flex flex-col gap-5 sm:mt-8 sm:gap-6 lg:gap-8 mb-10 sm:mb-20 lg:mb-50">
                 {column.items.map((item, i) => (
                   <AnimStaggerItem key={item.id}>
@@ -61,7 +66,7 @@ export default function Schedule() {
         </div>
       </div>
 
-      {/* Forma de colores decorativa, esquina inferior derecha */}
+      {/* Elemento gráfico 2 (Mismas imágenes y diseño para ambos parques) */}
       <img
         src={GraphicElement2}
         alt=""

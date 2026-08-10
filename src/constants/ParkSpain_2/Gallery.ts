@@ -1,0 +1,20 @@
+export const GalleryContent = {
+  title: "Galería",
+  albums: [
+    { id: 1, title: "Cruz de Mayo 2026", photoCount: 500, viewCount: 692 },
+    { id: 2, title: "Acuatlón Navideño 2025", photoCount: 77, viewCount: 27 },
+    { id: 3, title: "Fiesta Guadalupana 2025", photoCount: 547, viewCount: 347 },
+    { id: 4, title: "Acuatlón Septiembre 2025", photoCount: 226, viewCount: 175 },
+    { id: 5, title: "Romería de Covadonga 2025", photoCount: 470, viewCount: 346 },
+    { id: 6, title: "Romería Santiago Apóstol 2025", photoCount: 480, viewCount: 365 },
+    { id: 7, title: "Cruz de Mayo 2025", photoCount: 1151, viewCount: 754 },
+    { id: 8, title: "Cabalgata 2025", photoCount: 164, viewCount: 18 },
+    { id: 9, title: "Donación Navideña 2024", photoCount: 40, viewCount: 12 },
+    { id: 10, title: "Fiesta Guadalupana 2024", photoCount: 559, viewCount: 159 },
+    { id: 11, title: "Romería de Nuestra Señora del Pilar 2024", photoCount: 0, viewCount: 0 },
+    { id: 12, title: "Torneo Nuestra Señora del Pilar 2024", photoCount: 0, viewCount: 0 },
+    { id: 13, title: "Romería de Nuestra Señora de Covadonga 2024", photoCount: 0, viewCount: 0 },
+    { id: 14, title: "Fiesta de Covadonga 2024", photoCount: 0, viewCount: 0 },
+    { id: 15, title: "Romería Santiago Apóstol 2024", photoCount: 0, viewCount: 0 },
+  ],
+};

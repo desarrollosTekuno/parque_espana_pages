@@ -31,6 +31,11 @@ export const footerConfig = {
     {  label: "YouTube" },
   ],
 
+  botonHorarios: {
+    label: "Horarios",
+    to: "/facilities/schedules",
+  },
+
   botonParque: {
     label: "Ver Parque España II",
     to: "/parque-espana-2",
