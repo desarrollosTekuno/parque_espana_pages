@@ -10,6 +10,25 @@ export const HomeContent = {
   },
 
 
+  stats: {
+    title: "Tradición, deporte y comunidad en Puebla",
+    descriptionParts: [
+      { text: "Un espacio donde ", strong: false },
+      { text: "familias, cultura y bienestar", strong: true },
+      { text: " se unen para crear ", strong: false },
+      { text: "experiencias memorables", strong: true },
+      { text: " para todas las generaciones.", strong: false },
+    ],
+    imageAlt: "Elemento gráfico",
+    buttonText: "Conoce nuestras instalaciones",
+    buttonLink: "/parque-espana-2/facilities/virtual-view",
+    counters: [
+      { value: 6500, suffix: "", label: "Usuarios activos" },
+      { value: 60, suffix: "", label: "Años de historia" },
+      { value: 15, suffix: "", label: "Disciplinas deportivas" },
+      { value: 1, suffix: "M", label: "de experiencias compartidas" },
+    ],
+  },
 
 
   activities: {
@@ -66,7 +85,7 @@ installations: {
     },
   ],
   buttonText: "Ver instalaciones",
-  buttonLink: "/facilities/virtual-view",
+  buttonLink: "/parque-espana-2/facilities/virtual-view",
 },
 
   

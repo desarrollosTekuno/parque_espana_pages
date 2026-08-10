@@ -45,7 +45,7 @@ export const AboutContent = {
   buttons: {
     facilities: {
       text: "Conocer instalaciones",
-      to: "/facilities/virtual-view",
+      to: "/parque-espana-2/facilities/virtual-view",
     },
       memberships: undefined,
   },

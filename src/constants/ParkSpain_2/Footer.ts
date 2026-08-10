@@ -3,15 +3,17 @@ export const footerConfig = {
   patronatoSubtitulo: "Tradición que une, bienestar que perdura",
 
   columnaIzquierda: [
-    { label: "¿Quiénes somos?", to: "/about" },
-    { label: "Actividades", to: "/facilities/activities" },
-    { label: "Horarios", to: "/facilities/schedules" },
+    { label: "¿Quiénes somos?", to: "parque-espana-2/about" },
+   
+    { label: "Horarios", to: "parque-espana-2/facilities/schedules" },
+    { label: "Aviso de privacidad", to: "parque-espana-2/aviso-de-privacidad" },
   ],
 
   columnaDerecha: [
-    { label: "Membresías", to: "/memberships" },
-    { label: "APP móvil para socios", to: "/app-mobile" },
-    { label: "Aviso de privacidad", to: "/aviso-de-privacidad" },
+    { label: "Membresías", to: "parque-espana-2/memberships" },
+    { label: "APP móvil para socios", to: "parque-espana-2/app-mobile" },
+
+   
   ],
 
   direccion: {
@@ -29,6 +31,11 @@ export const footerConfig = {
     { label: "Instagram" },
     {  label: "X" },
   ],
+
+  botonHorarios: {
+    label: "Horarios",
+    to: "parque-espana-2/facilities/schedules",
+  },
 
   botonParque: {
     label: "Ver Parque España I",
