@@ -1,5 +1,4 @@
 import { useLocation } from "react-router-dom";
-import Cards from "../CardsImages";
 import Carousel from "../Carousel";
 
 // Configuraciones de Home para cada parque
@@ -17,7 +16,7 @@ export default function Activities() {
   // Selección dinámica de contenido
   const content = isParque2 ? parque2Content : parque1Content;
 
-  const { title, descriptionParts, cards } = content.activities;
+  const { title, descriptionParts } = content.activities;
 
   return (
     <section className="bg-[#F2F4F7] mt-20 lg:mt-40">
@@ -39,7 +38,7 @@ export default function Activities() {
         {/* Sin wrap extra: hereda el ancho ya definido por el padre */}
 
         <div className="mt-16 -mx-[5%] sm:-mx-[10%] lg:-mx-[12.5%] wrap-90">
-          <Carousel items={cards} />
+          <Carousel  />
         </div>
       </div>
     </section>

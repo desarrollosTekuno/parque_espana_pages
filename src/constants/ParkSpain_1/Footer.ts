@@ -33,7 +33,7 @@ export const footerConfig = {
 
   botonHorarios: {
     label: "Horarios",
-    to: "/facilities/schedules",
+    to: "parque-espana-1/facilities/schedules",
   },
 
   botonParque: {

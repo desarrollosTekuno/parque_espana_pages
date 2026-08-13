@@ -7,23 +7,25 @@
   padding: 0;
   overflow-x: hidden;
   text-align: center;
-  background-color: #F2F4F7;
+  background-color: #f2f4f7;
 }
 
-body{
-font-family: poppins, sans-serif;
+body {
+  font-family: poppins, sans-serif;
 }
 
 .bg-header-gradient {
-  background: linear-gradient(90deg, #031724 0%, #0B598A 100%);
+  background: linear-gradient(90deg, #031724 0%, #0b598a 100%);
 }
 
 .bg-gradient-to-r {
-    --tw-gradient-position: to right in oklab;
-    background-image: linear-gradient(var(--tw-gradient-stops));
+  --tw-gradient-position: to right in oklab;
+  background-image: linear-gradient(var(--tw-gradient-stops));
 }
 
-
+.bg-gradient-to-l {
+  background: linear-gradient(90deg, #fcfcfc 0%, #d1e6f4 100%);
+}
 
 .sx__month-grid-day-name,
 .sx__week-grid__date-label,
@@ -52,8 +54,6 @@ font-family: poppins, sans-serif;
   height: 100%;
   max-height: 100%;
 }
-
-
 
 .sx-react-calendar-wrapper {
   --sx-color-primary: #043351;
@@ -95,7 +95,6 @@ font-family: poppins, sans-serif;
   }
 }
 
-
 /* index.css */
 
 .benefits-line-gradient {
@@ -131,7 +130,6 @@ font-family: poppins, sans-serif;
   padding-right: 10%;
 }
 
-
 @utility wrap-75 {
   padding-left: 12.5%;
   padding-right: 12.5%;
@@ -141,6 +139,3 @@ font-family: poppins, sans-serif;
   padding-left: 15%;
   padding-right: 15%;
 }
-
-
-

@@ -39,6 +39,6 @@ export const footerConfig = {
 
   botonParque: {
     label: "Ver Parque España I",
-    to: "/",
+    to: "/parque-espana-1",
   },
 };

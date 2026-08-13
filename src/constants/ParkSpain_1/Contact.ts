@@ -27,8 +27,8 @@ export const ContactContent = {
   },
   buttons: {
     horariosLabel: "Horarios",
-    horariosLink: "/facilities/schedules",
-    parqueLabel: "Ver Parque España 2",
+    horariosLink: "/parque-espana-1/facilities/schedules",
+    parqueLabel: "Ver Parque España II",
     parqueLink: "/parque-espana-2",
   },
 };

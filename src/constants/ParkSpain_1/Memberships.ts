@@ -48,7 +48,7 @@ export const MembershipsContent = {
         price: "$2,800.00",
         imageAlt: "Familia jugando pádel juntos",
         buttonText: "Solicitar información",
-        buttonLink: "/contact/",
+        buttonLink: "/parque-espana-1/contact/",
       },
       {
         id: 2,
@@ -57,7 +57,7 @@ export const MembershipsContent = {
         price: "$1,400.00",
         imageAlt: "Persona nadando en alberca",
         buttonText: "Solicitar información",
-        buttonLink: "/contact/",
+        buttonLink: "/parque-espana-1/contact/",
       },
       {
         id: 3,
@@ -66,7 +66,7 @@ export const MembershipsContent = {
         price: "$700.00",
         imageAlt: "Joven jugando pádel",
         buttonText: "Solicitar información",
-        buttonLink: "/contact/",
+        buttonLink: "/parque-espana-1/contact/",
       },
     ],
   },
@@ -86,6 +86,6 @@ export const MembershipsContent = {
     title: "¿Listo para formar parte de Parque España Puebla?",
     description: "Conoce más sobre las membresías y descubre todo lo que nuestra comunidad tiene para ofrecerte",
     buttonText: "Solicitar información",
-    buttonLink: "/contact/",
+    buttonLink: "/parque-espana-1/contact/",
   },
 };

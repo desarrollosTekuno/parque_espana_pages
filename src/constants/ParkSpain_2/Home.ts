@@ -39,21 +39,6 @@ export const HomeContent = {
       { text: "instalaciones deportivas, actividades culturales",strong: true,},
       { text: " y espacios diseñados para que personas de todas las edades disfruten de una comunidad activa, moderna y llena de tradición.",strong: false,},
     ],
-
-    cards: [
-      {
-        id: 1,
-        name: "Romería",
-      },
-      {
-        id: 2,
-        name: "Natación",
-      },
-      {
-        id: 3,
-        name: "Pádel",
-      },
-    ],
   },
 
 
@@ -62,28 +47,6 @@ export const HomeContent = {
 
 installations: {
   title: "Instalaciones pensadas para toda la familia",
-  cards: [
-    {
-      id: 1,
-      name: "Cafetería"
-    },
-    {
-      id: 2,
-      name: "Gimnasio"
-    },
-    {
-      id: 3,
-      name: "Alberca semiólimpica"
-    },
-    {
-      id: 4,
-      name: "Tenis"
-    },
-    {
-      id: 5,
-      name: "Jardines "
-    },
-  ],
   buttonText: "Ver instalaciones",
   buttonLink: "/parque-espana-2/facilities/virtual-view",
 },

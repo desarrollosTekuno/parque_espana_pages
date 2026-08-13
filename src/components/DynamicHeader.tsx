@@ -37,7 +37,9 @@ export default function Header() {
 
   // Filtrar "Actividades" del submenú de instalaciones solo para Parque España 2
   const filteredInstalacionesLinks = isParque2
-    ? instalacionesLinks.filter((item) => item.label.toLowerCase() !== "actividades")
+    ? instalacionesLinks.filter(
+        (item) => item.label.toLowerCase() !== "actividades",
+      )
     : instalacionesLinks;
 
   const [showNosotros, setShowNosotros] = useState(false);
@@ -68,8 +70,18 @@ export default function Header() {
       <header className="fixed inset-x-0 top-0 z-50 w-full border-none bg-header-gradient font-bold text-white">
         <nav className="mx-auto flex h-17.5 items-center justify-between px-6">
           {/* LOGO DINÁMICO */}
-          <Link to="/" className="flex items-center" onClick={closeMobileMenu}>
-            <img src={currentLogo} alt="Parque España" className="ml-10 h-12 w-10 object-contain" />
+
+  
+          <Link
+            to={isParque2 ? "/parque-espana-2" : "/parque-espana-1"}
+            className="flex items-center"
+            onClick={closeMobileMenu}
+          >
+            <img
+              src={currentLogo}
+              alt="Parque España"
+              className="ml-10 h-12 w-10 object-contain"
+            />
           </Link>
 
           {/* DESKTOP MENU */}
@@ -79,27 +91,30 @@ export default function Header() {
                 key={link.to ?? index}
                 className="relative flex items-center h-full"
                 onMouseEnter={() => {
-                  if (link.label === "Nosotros" && nosotrosLinks.length > 0) {
+                  if (link.label == "Nosotros" && nosotrosLinks.length > 0) {
                     setShowNosotros(true);
                   }
                 }}
                 onMouseLeave={() => {
-                  if (link.label === "Nosotros") {
+                  if (link.label == "Nosotros") {
                     setShowNosotros(false);
                   }
                 }}
               >
-                {link.label === "Nosotros" && nosotrosLinks.length > 0 ? (
+                {link.label == "Nosotros" && nosotrosLinks.length > 0 ? (
                   <button className="flex items-center hover:text-blue-300 transition-colors">
                     {link.label}
                   </button>
                 ) : (
-                  <Link to={link.to ?? "#"} className="flex items-center hover:text-blue-300 transition-colors">
+                  <Link
+                    to={link.to ?? "#"}
+                    className="flex items-center hover:text-blue-300 transition-colors"
+                  >
                     {link.label}
                   </Link>
                 )}
 
-                {link.label === "Nosotros" &&
+                {link.label == "Nosotros" &&
                   showNosotros &&
                   nosotrosLinks.length > 0 && (
                     <ul className="absolute left-1/2 -translate-x-1/2 top-full w-52 rounded-b-md bg-white text-gray-800 shadow-lg py-2">
@@ -149,7 +164,10 @@ export default function Header() {
             {/* LINKS SECUNDARIOS */}
             {secondaryLinks.map((link, index) => (
               <li key={link.to ?? index} className="flex items-center h-full">
-                <Link to={link.to ?? "#"} className="flex items-center hover:text-blue-300 transition-colors">
+                <Link
+                  to={link.to ?? "#"}
+                  className="flex items-center hover:text-blue-300 transition-colors"
+                >
                   {link.label}
                 </Link>
               </li>
@@ -179,8 +197,11 @@ export default function Header() {
           <div className="max-h-[calc(100vh-70px)] overflow-y-auto border-t border-white/10 lg:hidden">
             <ul className="flex flex-col divide-y divide-white/10 px-6 py-4 text-sm">
               {mainLinks.map((link, index) => (
-                <li key={link.to ?? index} className="flex flex-col justify-center">
-                  {link.label === "Nosotros" && nosotrosLinks.length > 0 ? (
+                <li
+                  key={link.to ?? index}
+                  className="flex flex-col justify-center"
+                >
+                  {link.label == "Nosotros" && nosotrosLinks.length > 0 ? (
                     <>
                       <button
                         type="button"
@@ -260,7 +281,10 @@ export default function Header() {
               )}
 
               {secondaryLinks.map((link, index) => (
-                <li key={link.to ?? index} className="flex flex-col justify-center">
+                <li
+                  key={link.to ?? index}
+                  className="flex flex-col justify-center"
+                >
                   <Link
                     to={link.to ?? "#"}
                     className="flex items-center py-3 hover:text-blue-300"

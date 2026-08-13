@@ -4,7 +4,7 @@ export const HomeContent = {
     title: "Aquí se vive el movimiento",
     description: "Deporte, cultura y comunidad en un mismo espacio.",
     buttonText: "Descubre Parque España I",
-    buttonLink: "/",
+    buttonLink: "/parque-espana-1/about",
     imageAlt:
       "Jugador de tenis y mujer con vestimenta tradicional en Parque España",
   },
@@ -20,7 +20,7 @@ export const HomeContent = {
     ],
     imageAlt: "Elemento gráfico",
     buttonText: "Conoce nuestras instalaciones",
-    buttonLink: "/facilities/virtual-view",
+    buttonLink: "/parque-espana-1/facilities/virtual-view",
     counters: [
       { value: 6500, suffix: "", label: "Usuarios activos" },
       { value: 60, suffix: "", label: "Años de historia" },
@@ -37,21 +37,6 @@ export const HomeContent = {
       { text: " es un club social, deportivo y cultural enfocado en la convivencia familiar, el bienestar y la recreación. Contamos con ", strong: false,},
       { text: "instalaciones deportivas, actividades culturales",strong: true,},
       { text: " y espacios diseñados para que personas de todas las edades disfruten de una comunidad activa, moderna y llena de tradición.",strong: false,},
-    ],
-
-    cards: [
-      {
-        id: 1,
-        name: "Romería",
-      },
-      {
-        id: 2,
-        name: "Natación",
-      },
-      {
-        id: 3,
-        name: "Pádel",
-      },
     ],
   },
 
@@ -86,30 +71,9 @@ export const HomeContent = {
 
 installations: {
   title: "Instalaciones pensadas para toda la familia",
-  cards: [
-    {
-      id: 1,
-      name: "Cafetería"
-    },
-    {
-      id: 2,
-      name: "Gimnasio"
-    },
-    {
-      id: 3,
-      name: "Alberca semiólimpica"
-    },
-    {
-      id: 4,
-      name: "Tenis"
-    },
-    {
-      id: 5,
-      name: "Jardines"
-    },
-  ],
+
   buttonText: "Ver instalaciones",
-  buttonLink: "/facilities/virtual-view",
+  buttonLink: "/parque-espana-1/facilities/virtual-view",
 },
 
   
@@ -130,11 +94,11 @@ app: {
     buttons: {
       activities: {
         label: "Conocer actividades",
-        to: "/facilities/activities",
+        to: "/parque-espana-1/facilities/activities",
       },
       memberships: {
         label: "Membresías",
-        to: "/memberships",
+        to: "/parque-espana-1/memberships",
       },
     },
   },

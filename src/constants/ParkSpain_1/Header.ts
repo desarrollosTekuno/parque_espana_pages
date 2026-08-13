@@ -2,22 +2,22 @@ export const headerConfig = {
   mainLinks: [
     {
       label: "Inicio",
-      to: "/",
+      to: "/parque-espana-1",
     },
     {
       label: "Nosotros",
-      to: "/about",
+      to: "parque-espana-1/about",
     },
     {
       label: "Membresías",
-      to: "/memberships",
+      to: "parque-espana-1/memberships",
     },
   ],
 
   secondaryLinks: [
     {
       label: "APP móvil",
-      to: "/app-mobile",
+      to: "parque-espana-1/app-mobile",
     },
     {
       label: "Parque España II",
@@ -25,26 +25,26 @@ export const headerConfig = {
     },
     {
       label: "Contacto",
-      to: "/contact",
+      to: "parque-espana-1/contact",
     },
   ],
 
   instalacionesLinks: [
     {
       label: "Horarios",
-      to: "/facilities/schedules",
+      to: "parque-espana-1/facilities/schedules",
     },
     {
       label: "Vista virtual",
-      to: "/facilities/virtual-view",
+      to: "parque-espana-1/facilities/virtual-view",
     },
     {
       label: "Actividades",
-      to: "/facilities/activities",
+      to: "parque-espana-1/facilities/activities",
     },
     {
       label: "Galería",
-      to: "/facilities/gallery",
+      to: "parque-espana-1/facilities/gallery",
     },
   ],
 };
