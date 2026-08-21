@@ -17,9 +17,7 @@ export default function Home() {
       <Experience />
       <Installations />
       <App />
-      <ParkExperience />
-
-      
+      <ParkExperience />      
     </main>
   )
 }

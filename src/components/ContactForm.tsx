@@ -1,8 +1,17 @@
 import { useState, type FormEvent } from "react";
-import { ContactContent } from "../constants/ParkSpain_1/Contact";
+import { useLocation } from "react-router-dom";
+import { Loader2, CheckCircle2, XCircle } from "lucide-react";
+import { ContactContent as contactParque1 } from "../constants/ParkSpain_1/Contact";
+import { ContactContent as contactParque2 } from "../constants/ParkSpain_2/Contact";
+import { submitClubContact, CLUB_IDS } from "../services/api";
 
 export default function ContactForm() {
-  const { form } = ContactContent;
+  const location = useLocation();
+  const isParque2 = location.pathname.startsWith("/parque-espana-2");
+  const clubId = isParque2 ? CLUB_IDS.PARQUE_2 : CLUB_IDS.PARQUE_1;
+
+  const content = isParque2 ? contactParque2 : contactParque1;
+  const { form } = content;
 
   const [values, setValues] = useState({
     name: "",
@@ -11,16 +20,26 @@ export default function ContactForm() {
     message: "",
   });
 
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setValues((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // TODO: conectar a API / servicio de envío (EmailJS, Formspree, endpoint propio, etc.)
-    console.log("Contacto enviado:", values);
+    setStatus("submitting");
+
+    try {
+      await submitClubContact(clubId, values);
+      setStatus("success");
+      setValues({ name: "", email: "", subject: "", message: "" });
+    } catch (err) {
+      console.error("Error enviando contacto:", err);
+      setStatus("error");
+    }
   };
 
   return (
@@ -91,10 +110,30 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        className="mt-2 w-full rounded-lg bg-gray-500 py-3 font-bold text-white transition hover:bg-gray-600 sm:w-auto sm:px-10"
+        disabled={status == "submitting"}
+        className="mt-2 flex w-full items-center justify-center gap-2 rounded-lg bg-gray-500 py-3 font-bold text-white transition hover:bg-gray-600 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto sm:px-10"
       >
-        {form.submitLabel}
+        {status == "submitting" && <Loader2 className="h-5 w-5 animate-spin" />}
+        {status == "submitting" ? "Enviando..." : form.submitLabel}
       </button>
+
+      {status == "success" && (
+        <div className="flex items-start gap-3 rounded-lg border border-green-200 bg-green-50 p-4">
+          <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-green-600" />
+          <p className="text-[14px] font-bold text-green-700">
+            ¡Tu mensaje fue enviado correctamente! Nos pondremos en contacto pronto.
+          </p>
+        </div>
+      )}
+
+      {status == "error" && (
+        <div className="flex items-start gap-3 rounded-lg border border-red-200 bg-red-50 p-4">
+          <XCircle className="mt-0.5 h-5 w-5 shrink-0 text-red-600" />
+          <p className="text-[14px] font-bold text-red-700">
+            Ocurrió un error al enviar tu mensaje. Intenta de nuevo.
+          </p>
+        </div>
+      )}
     </form>
   );
 }

@@ -1,26 +1,47 @@
 import { useCallback, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import useEmblaCarousel from "embla-carousel-react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ImageOff, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
-import Swimming from "@/assets/images/Home/Swimming.webp";
+import { getClubCarousel, CLUB_IDS, type CarouselItem } from "../services/api";
 
-interface CarouselItem {
-  id: string | number;
-  name: string;
-  image?: string;
-  imageUrl?: string;
-}
+const MIN_SLIDES = 3;
 
-interface CarouselProps {
-  items: CarouselItem[];
-}
-
-export default function Carousel({ items }: CarouselProps) {
+export default function Carousel() {
   const location = useLocation();
 
-  // Detección del parque según la ruta actual
   const isParque2 = location.pathname.startsWith("/parque-espana-2");
+  const clubId = isParque2 ? CLUB_IDS.PARQUE_2 : CLUB_IDS.PARQUE_1;
+
+  const [items, setItems] = useState<CarouselItem[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(true);
+    getClubCarousel(clubId)
+      .then((data) => {
+        const filled = [...data];
+        while (filled.length < MIN_SLIDES) {
+          filled.push({
+            id: `placeholder-${filled.length}`,
+            description: "",
+            image_url: "",
+          });
+        }
+        setItems(filled);
+      })
+      .catch((err) => {
+        console.error("Error cargando carrusel:", err);
+        // Si falla la petición, muestra los cuadros "Próximamente" igual que cuando no hay datos
+        const fallback = Array.from({ length: MIN_SLIDES }, (_, i) => ({
+          id: `placeholder-error-${i}`,
+          description: "",
+          image_url: "",
+        }));
+        setItems(fallback);
+      })
+      .finally(() => setLoading(false));
+  }, [clubId]);
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
@@ -54,18 +75,20 @@ export default function Carousel({ items }: CarouselProps) {
     return () => clearInterval(autoplay);
   }, [emblaApi]);
 
+  if (loading) {
+    return (
+      <div className="w-full aspect-[4/3] max-h-[400px] bg-gray-200 rounded-2xl flex items-center justify-center">
+        <Loader2 className="w-8 h-8 text-gray-400 animate-spin" />
+      </div>
+    );
+  }
+
   return (
     <div className="relative w-full max-w-full">
       <div className="w-full max-w-full overflow-hidden" ref={emblaRef}>
-        {/* Sin gap aquí — el espacio ahora vive en el padding de cada slide */}
         <div className="flex">
-          {items.map((item: any) => {
-            // Determina la imagen a mostrar:
-            // 1. Si el ítem ya trae imagen desde la API/constantes, usa esa.
-            // 2. Si es Parque España 2 sin imagen, queda en null (para renderizar gris).
-            // 3. Si es Parque España 1, usa 'Swimming'.
-            const itemImage = item.image || item.imageUrl;
-            const currentImage = itemImage || (!isParque2 ? Swimming : null);
+          {items.map((item) => {
+            const isPlaceholder = !item.image_url;
 
             return (
               <div
@@ -73,28 +96,32 @@ export default function Carousel({ items }: CarouselProps) {
                 className="min-w-0 shrink-0 basis-full pr-1 sm:basis-1/2 sm:pr-3 lg:basis-1/3 lg:pr-3"
               >
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer group bg-gray-300">
-                  {currentImage ? (
+                  {!isPlaceholder ? (
                     <img
-                      src={currentImage}
-                      alt={item.name}
+                      src={item.image_url}
+                      alt={item.description}
                       loading="lazy"
                       className="absolute inset-0 w-full h-full object-cover"
                     />
                   ) : (
-                    /* Espacio reservado en gris para Parque España 2 cuando no hay imagen */
-                    <div className="absolute inset-0 bg-gray-300 w-full h-full" />
+                    <div className="absolute inset-0 bg-gray-300 w-full h-full flex flex-col items-center justify-center gap-2 text-gray-400">
+                      <ImageOff className="w-10 h-10" />
+                      <span className="text-sm font-medium">Próximamente</span>
+                    </div>
                   )}
 
-                  <motion.div
-                    className="absolute inset-0 bg-black/40 flex items-end justify-center p-4"
-                    initial={{ opacity: 0 }}
-                    whileHover={{ opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <p className="text-white text-[20px] sm:text-[20px] lg:text-[25px] font-bold text-center">
-                      {item.name}
-                    </p>
-                  </motion.div>
+                  {!isPlaceholder && (
+                    <motion.div
+                      className="absolute inset-0 bg-black/40 flex items-end justify-center p-4"
+                      initial={{ opacity: 0 }}
+                      whileHover={{ opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <p className="text-white text-[20px] sm:text-[20px] lg:text-[25px] font-bold text-center">
+                        {item.description}
+                      </p>
+                    </motion.div>
+                  )}
                 </div>
               </div>
             );

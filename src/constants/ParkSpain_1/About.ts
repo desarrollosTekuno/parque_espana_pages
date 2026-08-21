@@ -52,11 +52,11 @@ export const AboutContent = {
   buttons: {
     facilities: {
       text: "Conocer instalaciones",
-      to: "/facilities/virtual-view",
+      to: "/parque-espana-1/facilities/virtual-view",
     },
     memberships: {
       text: "Ver membresías",
-      to: "/memberships",
+      to: "/parque-espana-1/memberships",
     },
   },
 },
