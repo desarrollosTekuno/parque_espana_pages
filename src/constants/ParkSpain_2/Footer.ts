@@ -6,7 +6,7 @@ export const footerConfig = {
     { label: "¿Quiénes somos?", to: "parque-espana-2/about" },
    
     { label: "Horarios", to: "parque-espana-2/facilities/schedules" },
-    { label: "Aviso de privacidad", to: "parque-espana-2/aviso-de-privacidad" },
+    { label: "Aviso de privacidad", to: "parque-espana-2/privacy-notice" },
   ],
 
   columnaDerecha: [
@@ -16,21 +16,15 @@ export const footerConfig = {
    
   ],
 
-  direccion: {
-    linea1: "Carril a San Martinito Km. 1.5 Col. Ampliación Emiliano",
-    linea2: "Zapata San Andrés Cholula Puebla. C.P 72810",
-  },
-
-  telefono: {
-    numero: "+52 222 284 1091",
-    href: "tel:+522222841091",
-  },
-
   redesSociales: [
+    { label: "WhatsApp" },
     { label: "Facebook" },
     { label: "Instagram" },
-    {  label: "X" },
+    { label: "X" },
+    { label: "YouTube" },
+    { label: "Threads" },
   ],
+
 
   botonHorarios: {
     label: "Horarios",

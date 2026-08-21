@@ -5,7 +5,6 @@ import { ChevronLeft, ChevronRight, ImageOff, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { getClubCarousel, CLUB_IDS, type CarouselItem } from "../services/api";
 
-// Mínimo de espacios que siempre se deben ver en el carrusel
 const MIN_SLIDES = 3;
 
 export default function Carousel() {
@@ -22,7 +21,6 @@ export default function Carousel() {
     getClubCarousel(clubId)
       .then((data) => {
         const filled = [...data];
-        // Si vienen menos ítems que el mínimo, rellena con espacios vacíos (grises)
         while (filled.length < MIN_SLIDES) {
           filled.push({
             id: `placeholder-${filled.length}`,
@@ -32,7 +30,16 @@ export default function Carousel() {
         }
         setItems(filled);
       })
-      .catch((err) => console.error("Error cargando carrusel:", err))
+      .catch((err) => {
+        console.error("Error cargando carrusel:", err);
+        // Si falla la petición, muestra los cuadros "Próximamente" igual que cuando no hay datos
+        const fallback = Array.from({ length: MIN_SLIDES }, (_, i) => ({
+          id: `placeholder-error-${i}`,
+          description: "",
+          image_url: "",
+        }));
+        setItems(fallback);
+      })
       .finally(() => setLoading(false));
   }, [clubId]);
 

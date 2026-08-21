@@ -3,32 +3,24 @@ export const footerConfig = {
   patronatoSubtitulo: "Tradición que une, bienestar que perdura",
 
   columnaIzquierda: [
-    { label: "¿Quiénes somos?", to: "/about" },
-    { label: "Actividades", to: "/facilities/activities" },
-    { label: "Horarios", to: "/facilities/schedules" },
+    { label: "¿Quiénes somos?", to: "/parque-espana-1/about" },
+    { label: "Actividades", to: "/parque-espana-1/facilities/activities" },
+    { label: "Horarios", to: "/parque-espana-1/facilities/schedules" },
   ],
 
   columnaDerecha: [
-    { label: "Membresías", to: "/memberships" },
-    { label: "APP móvil para socios", to: "/app-mobile" },
-    { label: "Aviso de privacidad", to: "/aviso-de-privacidad" },
+    { label: "Membresías", to: "/parque-espana-1/memberships" },
+    { label: "APP móvil para socios", to: "/parque-espana-1/app-mobile" },
+    { label: "Aviso de privacidad", to: "/parque-espana-1/privacy-notice" },
   ],
 
-  direccion: {
-    linea1: "Av. 25 Ote. 1001, Ladrillera de Benítez, 72500",
-    linea2: "Heroica Puebla de Zaragoza, Pue.",
-  },
-
-  telefono: {
-    numero: "+52 1 222 917 5761",
-    href: "tel:+522229175761",
-  },
-
   redesSociales: [
-    {  label: "Facebook" },
-    {  label: "Instagram" },
-    {  label: "X" },
-    {  label: "YouTube" },
+    { label: "WhatsApp" },
+    { label: "Facebook" },
+    { label: "Instagram" },
+    { label: "X" },
+    { label: "YouTube" },
+    { label: "Threads" },
   ],
 
   botonHorarios: {

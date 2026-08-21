@@ -199,7 +199,7 @@ export default function Header() {
               {mainLinks.map((link, index) => (
                 <li
                   key={link.to ?? index}
-                  className="flex flex-col justify-center"
+                  className="flex flex-col text-left"
                 >
                   {link.label == "Nosotros" && nosotrosLinks.length > 0 ? (
                     <>
@@ -247,7 +247,7 @@ export default function Header() {
 
               {/* INSTALACIONES MOBILE */}
               {filteredInstalacionesLinks.length > 0 && (
-                <li className="flex flex-col justify-center">
+                <li className="flex flex-col text-left">
                   <button
                     type="button"
                     className="flex w-full items-center justify-between py-3 font-bold hover:text-blue-300 transition-colors text-left"

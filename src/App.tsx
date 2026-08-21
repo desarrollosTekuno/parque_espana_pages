@@ -13,6 +13,7 @@ import Activities from "./pages/Facilities/Activities";
 import Gallery from "./pages/Facilities/Gallery";
 import AppMobile from "./pages/AppMobile";
 import Contact from "./pages/Contact";
+import PrivacyNotice from "./pages/PrivacyNotice";
 import Leagues from "./pages/Leagues";
 import ScrollTop from "./components/ScrollTop";
 import Welcome from "./components/Welcome";
@@ -54,6 +55,7 @@ function App() {
         <Route path="/parque-espana-1/facilities/gallery" element={<Gallery />} />
         <Route path="/parque-espana-1/app-mobile" element={<AppMobile />} />
         <Route path="/parque-espana-1/contact" element={<Contact />} />
+        <Route path="/parque-espana-1/privacy-notice" element={<PrivacyNotice />} />
 
         {/* RUTAS PARQUE ESPAÑA II */}
         <Route path="/parque-espana-2" element={<Home />} />
@@ -65,6 +67,7 @@ function App() {
         <Route path="/parque-espana-2/facilities/gallery" element={<Gallery />} />
         <Route path="/parque-espana-2/app-mobile" element={<AppMobile />} />
         <Route path="/parque-espana-2/contact" element={<Contact />} />
+        <Route path="/parque-espana-2/privacy-notice" element={<PrivacyNotice />} />
       </Routes>
 
       {!isWelcomePage && <Footer />}

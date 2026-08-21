@@ -16,8 +16,7 @@ export default function Home() {
       <Hero />
       <Benefits />
       <Plans />
-
-   
+      
       {!isParque2 && (
         <>
           <Steps />

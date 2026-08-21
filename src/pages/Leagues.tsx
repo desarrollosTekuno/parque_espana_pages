@@ -3,8 +3,7 @@ import UniversitiesGrid from "../components/Leagues/2.Universities";
 
 export default function Leaguest() {
   return (
-    <main>
-      
+    <main>    
       <LeaguestContent />
       <UniversitiesGrid />
     </main>

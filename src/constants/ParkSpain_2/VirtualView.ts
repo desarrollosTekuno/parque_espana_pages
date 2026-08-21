@@ -8,63 +8,6 @@ export const VirtualViewContent = {
     graphicImageAlt: "Elemento decorativo",
   },
 
- tourGallery: {
-    tabs: [
-      {
-        id: "canchas",
-        label: "Canchas",
-        items: [
-          { id: 1, name: "Canchas de tenis" },
-          { id: 2, name: "Frontón" },
-          { id: 3, name: "Tenis" },
-          { id: 4, name: "Padel" },
-          { id: 5, name: "Fútbol" },
-          { id: 6, name: "Polideportivo" },
-    
-        ],
-      },
-      {
-        id: "interior",
-        label: "Interior",
-       
-        items: [
-          { id: 1, name: "Lobby" },
-          { id: 2, name: "Trofeos" },
-          { id: 3, name: "Vestidores" },
-          { id: 4, name: "Auditorio" },
-          { id: 5, name: "Billar" },
-        ],
-      },
-      {
-        id: "exterior",
-        label: "Exterior",
-        items: [
-          { id: 1, name: "Albercas" },
-          { id: 2, name: "Pista" },
-          { id: 3, name: "Jardines" },
-          { id: 4, name: "Juegos" },
-        ],
-        
-      },
-      {
-
-        id: "salones",
-        label: "Salones",
-        items: [
-          { id: 1, name: "Salones de pelotas" },
-          { id: 2, name: "Salones de spin" },
-          { id: 3, name: "Salones grandes" },
-          { id: 4, name: "Salones de artes marciales" },
-          { id: 5, name: "Salones de ballet" },
-          { id: 6, name: "Salones de box" },
-        ]
-  
-      },
-     
-    ],
-  },
-
-  
 
   liveExperience: {
   title: "Vive la experiencia en persona",

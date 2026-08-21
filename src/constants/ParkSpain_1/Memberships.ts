@@ -38,32 +38,32 @@ export const MembershipsContent = {
 
 
 
-    plans: {
+        plans: {
     title: "Una membresía para cada momento de tu vida",
     cards: [
       {
         id: 1,
+        code: "PE1_FAM",
         name: "Membresía familiar",
         description: "Ideal para familias que desean disfrutar de todas las instalaciones y actividades",
-        price: "$2,800.00",
         imageAlt: "Familia jugando pádel juntos",
         buttonText: "Solicitar información",
         buttonLink: "/parque-espana-1/contact/",
       },
       {
         id: 2,
+        code: "PE1_IND",
         name: "Membresía individual",
         description: "Pensada para quienes buscan una experiencia deportiva y recreativa personal",
-        price: "$1,400.00",
         imageAlt: "Persona nadando en alberca",
         buttonText: "Solicitar información",
         buttonLink: "/parque-espana-1/contact/",
       },
       {
         id: 3,
+        code: "PE1_SOL",
         name: "Membresía individual solidaria",
         description: "Cuota para jóvenes de 24 a 26 años",
-        price: "$700.00",
         imageAlt: "Joven jugando pádel",
         buttonText: "Solicitar información",
         buttonLink: "/parque-espana-1/contact/",

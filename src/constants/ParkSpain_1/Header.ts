@@ -21,7 +21,7 @@ export const headerConfig = {
     },
     {
       label: "Parque España II",
-      to: "/parque-espana-2",
+      to: "/",
     },
     {
       label: "Contacto",
