@@ -8,6 +8,8 @@ import Logo2 from "@/assets/icons/Logo_pe2.webp";
 import { headerConfig as parque1 } from "../constants/ParkSpain_1/Header";
 import { headerConfig as parque2 } from "../constants/ParkSpain_2/Header";
 
+import {LOGIN_URL} from "../services/api";
+
 interface HeaderLink {
   label: string;
   to?: string;
@@ -298,7 +300,7 @@ export default function Header() {
 
             <div className="px-6 pb-6 pt-2">
               <Link
-                to="/login"
+                to={LOGIN_URL}
                 className="flex items-center justify-center rounded-lg bg-[#043351] px-4 py-3 text-center text-sm font-semibold hover:bg-blue-700 transition-colors"
                 onClick={closeMobileMenu}
               >

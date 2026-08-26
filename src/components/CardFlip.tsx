@@ -120,7 +120,6 @@ export default function FlipCardGrid({
   const [activeCard, setActiveCard] = useState(0);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
-  // Evita que Strict Mode dispare la petición dos veces y reinicie el ciclo
   const fetchedForClubRef = useRef<number | null>(null);
 
   useEffect(() => {
@@ -133,7 +132,6 @@ export default function FlipCardGrid({
       .finally(() => setLoaded(true));
   }, [clubId]);
 
-  // Se arma el ciclo UNA sola vez cuando llegan los items reales (ya no se resetea después)
   const initializedRef = useRef(false);
 
   useEffect(() => {
@@ -141,7 +139,12 @@ export default function FlipCardGrid({
     if (initializedRef.current) return;
     initializedRef.current = true;
 
-    setIndices(Array.from({ length: realCount }, (_, i) => i % items.length));
+    // REPARTO INTELIGENTE: Distribuimos las tarjetas en el arreglo para que 
+    // nunca comiencen con la misma imagen y tengan un desfase proporcional.
+    const step = Math.floor(items.length / realCount) || 1;
+    const initialIndices = Array.from({ length: realCount }, (_, i) => (i * step) % items.length);
+    
+    setIndices(initialIndices);
     setActiveCard(0);
 
     timeoutRef.current = setTimeout(() => setActiveCard(0), visibleDuration);
@@ -154,6 +157,7 @@ export default function FlipCardGrid({
   const handleCardFlipComplete = (cardIdx: number) => {
     setIndices((prev) => {
       const next = [...prev];
+      // Avanzamos de forma circular independiente por tarjeta
       next[cardIdx] = (prev[cardIdx] + 1) % items.length;
       return next;
     });
