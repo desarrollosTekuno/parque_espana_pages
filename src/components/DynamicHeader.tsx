@@ -8,8 +8,7 @@ import Logo2 from "@/assets/icons/Logo_pe2.webp";
 import { headerConfig as parque1 } from "../constants/ParkSpain_1/Header";
 import { headerConfig as parque2 } from "../constants/ParkSpain_2/Header";
 
-import {LOGIN_URL} from "../services/api";
-
+const LOGIN_URL = import.meta.env.VITE_LOGIN_URL;
 interface HeaderLink {
   label: string;
   to?: string;
@@ -178,7 +177,7 @@ export default function Header() {
 
           {/* LOGIN */}
           <Link
-            to="/login"
+            to={LOGIN_URL}
             className="hidden rounded-md bg-[#043351] px-4 py-2 text-sm font-semibold hover:bg-slate-800 lg:flex lg:items-center lg:justify-center"
           >
             Iniciar sesión
