@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -8,60 +8,28 @@ import { GalleryContent as GalleryContent1 } from "../../../constants/ParkSpain_
 // Imports para Parque España 2
 import { GalleryContent as GalleryContent2 } from "../../../constants/ParkSpain_2/Gallery";
 
-// Mapas de imágenes por parque (Asegúrate de actualizar los paths según tus assets reales)
-const albumImages1: Record<number, string> = {
-  // 1: CruzDeMayo2026,
-  // 2: AcuatlonNavideno2025,
-};
-
-const albumImages2: Record<number, string> = {
-  // 1: CruzDeMayo2026Parque2,
-  // ...
-};
-
-// Mapas de links por parque
-const albumLinks1: Record<number, string> = {
-  1: "/galeria/cruz-de-mayo-2026",
-  2: "/galeria/acuatlon-navideno-2025",
-  3: "/galeria/fiesta-guadalupana-2025",
-  4: "/galeria/acuatlon-septiembre-2025",
-  5: "/galeria/romeria-covadonga-2025",
-  6: "/galeria/romeria-santiago-apostol-2025",
-  7: "/galeria/cruz-de-mayo-2025",
-  8: "/galeria/cabalgata-2025",
-  9: "/galeria/donacion-navidena-2024",
-  10: "/galeria/fiesta-guadalupana-2024",
-  11: "/galeria/romeria-pilar-2024",
-  12: "/galeria/torneo-pilar-2024",
-  13: "/galeria/romeria-covadonga-2024",
-  14: "/galeria/fiesta-covadonga-2024",
-  15: "/galeria/romeria-santiago-apostol-2024",
-};
-
-const albumLinks2: Record<number, string> = {
-  // Configura los links correspondientes para Parque España 2
-  // 1: "/parque-espana-2/galeria/evento-1",
-};
+// Flickr
+import { getFlickrPhotosets, type FlickrPhotoset } from "../../../services/api";
 
 interface AlbumCardProps {
   album: {
     title: string;
     photoCount: number | string;
     viewCount: number | string;
+    image_url?: string | null;
   };
-  image?: string;
   link: string;
 }
 
-function AlbumCard({ album, image, link }: AlbumCardProps) {
+function AlbumCard({ album, link }: AlbumCardProps) {
   return (
     <Link
       to={link}
       className="group relative aspect-square overflow-hidden rounded-xl bg-gray-300"
     >
-      {image && (
+      {album.image_url && (
         <img
-          src={image}
+          src={album.image_url}
           alt={album.title}
           loading="lazy"
           className="absolute inset-0 h-full w-full object-cover transition group-hover:scale-105"
@@ -80,26 +48,76 @@ function AlbumCard({ album, image, link }: AlbumCardProps) {
   );
 }
 
+// Cuántos álbumes trae cada página de Flickr
+const FLICKR_PER_PAGE = 15;
+
 export default function Gallery() {
   const location = useLocation();
   const isParque2 = location.pathname.startsWith("/parque-espana-2");
 
-  // Selección dinámica según la ruta
+  // Ruta base según el parque, usada para armar el link de cada álbum
+  const basePath = isParque2 ? "/parque-espana-2" : "/parque-espana-1";
+
   const currentContent = isParque2 ? GalleryContent2 : GalleryContent1;
-  const currentImages = isParque2 ? albumImages2 : albumImages1;
-  const currentLinks = isParque2 ? albumLinks2 : albumLinks1;
 
-  const { albums } = currentContent;
+  const { albums: staticAlbums } = currentContent;
 
-  const [page, setPage] = useState(0);
-  const perPage = 3;
-  const totalPages = Math.ceil(albums.length / perPage);
+  const [page, setPage] = useState(1);
+  const [flickrAlbums, setFlickrAlbums] = useState<FlickrPhotoset[] | null>(
+    null,
+  );
+  const [flickrTotalPages, setFlickrTotalPages] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [flickrFailed, setFlickrFailed] = useState(false);
 
-  const start = page * perPage;
-  const visibleAlbums = albums.slice(start, start + perPage);
+  useEffect(() => {
+    let cancelled = false;
+    setLoading(true);
 
-  const prev = () => setPage((p) => Math.max(0, p - 1));
-  const next = () => setPage((p) => Math.min(totalPages - 1, p + 1));
+    getFlickrPhotosets(page, FLICKR_PER_PAGE, isParque2 ? 2 : 1)
+      .then((res) => {
+        if (cancelled) return;
+        setFlickrAlbums(res.photosets);
+        setFlickrTotalPages(res.totalPages);
+        setFlickrFailed(false);
+      })
+      .catch((err) => {
+        console.error("No se pudieron cargar los álbumes de Flickr:", err);
+        if (!cancelled) setFlickrFailed(true);
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [page, isParque2]);
+
+  const usingFlickr = !flickrFailed && flickrAlbums !== null;
+
+  // Usamos el id REAL de Flickr para poder navegar al álbum correcto
+  const albums = usingFlickr
+    ? flickrAlbums!.map((fp) => ({
+        id: fp.id,
+        title: fp.title,
+        photoCount: fp.photoCount,
+        viewCount: fp.viewCount,
+        image_url: fp.primaryPhotoUrl,
+      }))
+    : staticAlbums;
+
+  const localPerPage = 3;
+  const totalPages = usingFlickr
+    ? flickrTotalPages
+    : Math.ceil(staticAlbums.length / localPerPage);
+
+  const visibleAlbums = usingFlickr
+    ? albums
+    : albums.slice((page - 1) * localPerPage, page * localPerPage);
+
+  const prev = () => setPage((p) => Math.max(1, p - 1));
+  const next = () => setPage((p) => Math.min(totalPages, p + 1));
 
   const touchStartX = { current: 0 };
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -111,6 +129,10 @@ export default function Gallery() {
     if (deltaX > 50) prev();
   };
 
+  // Link dinámico: cada álbum manda directo a SU propio detalle, sin mapas fijos
+  const getAlbumLink = (album: any) =>
+    `${basePath}/facilities/gallery/${album.id}`;
+
   return (
     <div className="wrap-90 sm:wrap-80 lg:wrap-80 mt-10 sm:mt-14 lg:mt-20">
       <div className="relative w-full">
@@ -121,12 +143,11 @@ export default function Gallery() {
           onTouchEnd={handleTouchEnd}
         >
           <div className="mx-auto grid max-w-[280px] grid-cols-1 gap-4 sm:max-w-[320px] sm:gap-5">
-            {visibleAlbums.map((album) => (
+            {visibleAlbums.map((album: any) => (
               <AlbumCard
                 key={album.id}
                 album={album}
-                image={currentImages[album.id]}
-                link={currentLinks[album.id] ?? "#"}
+                link={getAlbumLink(album)}
               />
             ))}
           </div>
@@ -135,17 +156,17 @@ export default function Gallery() {
             <div className="mt-8 flex items-center justify-center gap-4 sm:mt-10">
               <button
                 onClick={prev}
-                disabled={page === 0}
+                disabled={page === 1 || loading}
                 className="rounded-full bg-white p-2 shadow disabled:opacity-30"
               >
                 <ChevronLeft className="h-5 w-5 text-[#0097b2]" />
               </button>
               <span className="text-sm text-gray-500">
-                {page + 1} / {totalPages}
+                {page} / {totalPages}
               </span>
               <button
                 onClick={next}
-                disabled={page === totalPages - 1}
+                disabled={page === totalPages || loading}
                 className="mb-12 rounded-full bg-white p-2 shadow disabled:opacity-30"
               >
                 <ChevronRight className="h-5 w-5 text-[#0097b2]" />
@@ -156,15 +177,36 @@ export default function Gallery() {
 
         {/* DESKTOP (lg) */}
         <div className="mb-20 hidden grid-cols-5 gap-6 lg:grid">
-          {albums.map((album) => (
+          {visibleAlbums.map((album: any) => (
             <AlbumCard
               key={album.id}
               album={album}
-              image={currentImages[album.id]}
-              link={currentLinks[album.id] ?? "#"}
+              link={getAlbumLink(album)}
             />
           ))}
         </div>
+
+        {totalPages > 1 && (
+          <div className="hidden lg:flex items-center justify-center gap-4 -mt-16 mb-16">
+            <button
+              onClick={prev}
+              disabled={page === 1 || loading}
+              className="rounded-full bg-white p-2 shadow disabled:opacity-30"
+            >
+              <ChevronLeft className="h-5 w-5 text-[#0097b2]" />
+            </button>
+            <span className="text-sm text-gray-500">
+              {page} / {totalPages}
+            </span>
+            <button
+              onClick={next}
+              disabled={page == totalPages || loading}
+              className="rounded-full bg-white p-2 shadow disabled:opacity-30"
+            >
+              <ChevronRight className="h-5 w-5 text-[#0097b2]" />
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

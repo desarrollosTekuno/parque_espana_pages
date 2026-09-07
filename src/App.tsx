@@ -15,8 +15,10 @@ import AppMobile from "./pages/AppMobile";
 import Contact from "./pages/Contact";
 import PrivacyNotice from "./pages/PrivacyNotice";
 import Leagues from "./pages/Leagues";
+import AlbumDetail from "./pages/Facilities/AlbumDetail";
 import ScrollTop from "./components/ScrollTop";
 import Welcome from "./components/Welcome";
+
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -53,6 +55,7 @@ function App() {
         <Route path="/parque-espana-1/facilities/virtual-view" element={<VirtualView />} />
         <Route path="/parque-espana-1/facilities/activities" element={<Activities />} />
         <Route path="/parque-espana-1/facilities/gallery" element={<Gallery />} />
+        <Route path="/parque-espana-1/facilities/gallery/:photosetId" element={<AlbumDetail />} />
         <Route path="/parque-espana-1/app-mobile" element={<AppMobile />} />
         <Route path="/parque-espana-1/contact" element={<Contact />} />
         <Route path="/parque-espana-1/privacy-notice" element={<PrivacyNotice />} />
@@ -65,6 +68,7 @@ function App() {
         <Route path="/parque-espana-2/facilities/schedules" element={<Schedules />} />
         <Route path="/parque-espana-2/facilities/virtual-view" element={<VirtualView />} />
         <Route path="/parque-espana-2/facilities/gallery" element={<Gallery />} />
+        <Route path="/parque-espana-2/facilities/gallery/:photosetId" element={<AlbumDetail />} />
         <Route path="/parque-espana-2/app-mobile" element={<AppMobile />} />
         <Route path="/parque-espana-2/contact" element={<Contact />} />
         <Route path="/parque-espana-2/privacy-notice" element={<PrivacyNotice />} />
